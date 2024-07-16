@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="reset" href="./assests/css/reset.css">
+    <link rel="stylesheet" href="./assests/css/bulma.css">
+    <link rel="stylesheet" href="./assests/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
+    <title>BREAKOUT Room 3 Pokedex</title>
+</head>
+
+<body>
+    <!-- QUESTIONS IN ALL CAPS -->
+    <!-- Header with Pokemon background image and nav bar w/ links to popular pokemon sites DO WE WANT TO LINK ANYTHING ELSE? -->
+    <header class="header-background">
+        <img src="./assests/Images/Pokédex_logo.png" alt="Pokedex Logo" class="header-logo">
+        <nav class="navbar">
+            <div class="container">
+                <div class="navbar-menu is-active">
+                    <div class="navbar-end">
+                        <a class="navbar-item pill-navbar-item" href="https://www.pokemon.com/us">
+                            <i class="fas fa-globe"></i> Official Pokemon Website
+                        </a>
+                        <a class="navbar-item pill-navbar-item" href="https://pokemongolive.com/?hl=en">
+                            <i class="fas fa-mobile-alt"></i> Pokemon Go
+                        </a>
+                        <a class="navbar-item pill-navbar-item"
+                            href="https://www.youtube.com/channel/UCFctpiB_Hnlk3ejWfHqSm6Q">
+                            <i class="fas fa-play"></i> Official Pokemon YouTube
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="content-wrapper">
+        <!-- Left Side Bar -->
+        <aside class="side-bar">
+            <div class="left-container">
+                <!-- Party of 6 -->
+                <div class="party-of-6">
+                    <h2>Party of 6</h2>
+                    <!-- THIS IS WHERE THE LINE UP WILL GO, DOE THIS NEED ADDITIONAL CONTAINERS? -->
+                </div>
+                <!-- Favorites List -->
+                <div class="favorites-list">
+                    <h2>Favorites List</h2>
+                    <!-- Add POKEDEX INDEX API HERE? CONTAINER? -->
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Pokedex Content -->
+        <main>
+            <!-- Search Bar Vertical -->
+            <div class="search-bar">
+                <form id="search-form">
+                    <input type="text" name="search" id="search" class="input is-medium"
+                        placeholder="Search for a Pokémon">
+                </form>
+            </div>
+
+            <!-- MAIN POKEMON INFO -->
+            <div class="pokemon-info">
+                <div>
+                    <!-- Name/Number -->
+                    <h1 id="pokemon-name"></h1>
+                    <!-- Species -->
+                    <p id="pokemon-species"></p>
+                    <!-- Dex Entry - DETAILED INFORMATION API? -->
+                    <p id="pokemon-entry"></p>
+                </div>
+                <!-- Picture of Mon -->
+                <div class="dex-photo-container">
+                    <img id='dexPhoto' src="./assests/Images/images-removebg-preview.png" alt="Pokemon image">
+                </div>
+                <!-- ATTRIBUTES AND EVOLUTION TIMELINE SECTION -->
+                <section class="section">
+                    <div class="container">
+                        <div class="attributes-section" id="pokemon-attributes">
+                            <h2>Pokemon Attributes</h2>
+                            <div class="attribute" id="hp">
+                                <p>HP: <span>--</span></p>
+                            </div>
+                            <div class="attribute" id="attack">
+                                <p>Attack: <span>--</span></p>
+                            </div>
+                            <div class="attribute" id="special-attack">
+                                <p>Special Attack: <span>--</span></p>
+                            </div>
+                            <div class="attribute" id="defense">
+                                <p>Defense: <span>--</span></p>
+                            </div>
+                            <div class="attribute" id="special-defense">
+                                <p>Special Defense: <span>--</span></p>
+                            </div>
+                            <div class="attribute" id="speed">
+                                <p>Speed: <span>--</span></p>
+                            </div>
+                        </div>
+                        <div class="evolution-timeline" id="evolution-timeline">
+                            <h2>Evolution Timeline</h2>
+                            <p>--</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Right Side Bar -->
+        <aside class="side-bar">
+            <div class="right-container">
+                <!-- PokeTrivia API area -->
+                <div class="poke-trivia">
+                    <h2>PokeTrivia API area</h2>
+                    <!-- API CONNECT HERE - DOES THIS NEED ADDITIONAL CONTAINERS? -->
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="./assests/js/script.js"></script>
+</body>
+
+</html>
