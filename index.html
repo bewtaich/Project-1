@@ -1,100 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
-  </head>
-  <body>
-
-<!-- Left Side Bar -->
-    <section>
-    <!--Party of 6-->
-        <div>
-
-        </div>
-
-    <!--Favorites List-->
-        <div>
-
-        </div>
-    </section>
-
-
-<!-- Pokedex   -->  
-    <main>
-        <header class="header-background">
-            <nav class="navbar">
-                <div class="container">
-                    <div class="navbar-menu is-active">
-                        <div class="navbar-start">
-                            <a class="navbar-item" href="https://www.pokemon.com/us">Official Pokemon Website</a>
-                            <a class="navbar-item" href="https://pokemongolive.com/?hl=en">Pokemon Go</a>
-                            <a class="navbar-item" href="https://www.youtube.com/channel/UCFctpiB_Hnlk3ejWfHqSm6Q">Official Pokemon YouTube</a>
-                        </div>
+</head>
+<body>
+    <!-- Header spanning full width -->
+    <header class="header-background">
+        <nav class="navbar">
+            <div class="container">
+                <div class="navbar-menu is-active">
+                    <div class="navbar-start">
+                        <a class="navbar-item" href="https://www.pokemon.com/us">Official Pokemon Website</a>
+                        <a class="navbar-item" href="https://pokemongolive.com/?hl=en">Pokemon Go</a>
+                        <a class="navbar-item" href="https://www.youtube.com/channel/UCFctpiB_Hnlk3ejWfHqSm6Q">Official Pokemon YouTube</a>
                     </div>
                 </div>
-            </nav>
-        </header>
-
-
-
-    <!-- Search Bar Vertical -->
-        <aside>
-
-        </aside>
-
-    <!--Pokemon Info-->
-        <div>
-            <div>
-            <!--Name/Number-->
-                <h1>
-                </h1>
-            <!--Species-->
-                <p></p>
-            <!--Dex Entry-->
-                <p></p>
             </div>
-        <!--Picture of Mon-->
-            <div>
-                <img src="" alt="">
-            </div>
+        </nav>
+    </header>
 
+    <div class="content-wrapper">
+        <!-- Left Side Bar -->
+        <section class="side-bar">
+            <!-- Party of 6 -->
+            <div></div>
 
+            <!-- Favorites List -->
+            <div></div>
+        </section>
+
+        <!-- Pokedex -->
+        <main>
+            <!-- Search Bar Vertical -->
+            <aside>
+                <form><input type="text" name="search" id="search"></form>
+            </aside>
+
+            <!-- Pokemon Info -->
             <div>
-            <!--Stats-->
                 <div>
-
+                    <!-- Name/Number -->
+                    <h1></h1>
+                    <!-- Species -->
+                    <p></p>
+                    <!-- Dex Entry -->
+                    <p></p>
+                </div>
+                <!-- Picture of Mon -->
+                <div>
+                    <img id='dexPhoto' src="" alt="">
                 </div>
 
-            <!--Evolution Line-->
-                <div>
-
-                </div>
+                <section class="section">
+                    <div class="container">
+                        <div class="attributes-section" id="pokemon-attributes">
+                            <h2>Pokemon Attributes</h2>
+                            <div class="attribute" id="hp">
+                                <p>HP: <span>--</span></p>
+                            </div>
+                            <div class="attribute" id="attack">
+                                <p>Attack: <span>--</span></p>
+                            </div>
+                            <div class="attribute" id="special-attack">
+                                <p>Special Attack: <span>--</span></p>
+                            </div>
+                            <div class="attribute" id="defense">
+                                <p>Defense: <span>--</span></p>
+                            </div>
+                            <div class="attribute" id="special-defense">
+                                <p>Special Defense: <span>--</span></p>
+                            </div>
+                            <div class="attribute" id="speed">
+                                <p>Speed: <span>--</span></p>
+                            </div>
+                        </div>
+                        <div class="evolution-timeline" id="evolution-timeline">
+                            <h2>Evolution Timeline</h2>
+                            <p>--</p>
+                        </div>
+                    </div>
+                </section>
             </div>
-        </div>
-    </main>
+        </main>
 
-<!-- Right Side Bar -->
-    <section>
-
-
-
-
-
-    </section>
-
-
-
-
-
-
-
-
-
-
+        <!-- Right Side Bar -->
+        <section class="side-bar"></section>
+    </div>
 
     <script src="./assets/script.js"></script>
-  </body>
+</body>
 </html>
