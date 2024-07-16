@@ -1,0 +1,31 @@
+body {
+    font-family: 'Krona One', sans-serif; /* Apply the Krona One font to the body */
+}
+.header-background {
+    background-image: url('https://frostilyte.ca/wp-content/uploads/2023/11/pokemon-banner.png?w=816');
+    background-size: cover;
+    background-position: center;
+    height: 200px; /* Adjust the height as needed */
+    position: relative;
+}
+.navbar {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+}
+.navbar-item {
+    background-color: #ed4035; /* Button background color */
+    color: white; /* Button text color */
+    border-radius: 50px; /* Pill shape */
+    padding: 5px 15px; /* Smaller padding for the pill shape */
+    margin: 0 5px; /* Margin between buttons */
+    text-transform: uppercase; /* Uppercase text */
+    font-weight: bold; /* Bold text */
+    font-size: 0.8em; /* Smaller font size */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+.navbar-item:hover {
+    background-color: #d93630; /* Slightly darker shade on hover */
+    color: white;
+}
