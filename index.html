@@ -42,13 +42,13 @@
                     <div class="container">
                         <div class="navbar-menu is-active">
                             <div class="navbar-end">
-                                <a class="navbar-item pill-navbar-item" href="https://www.pokemon.com/us">
+                                <a class="navbar-item pill-navbar-item" target="_blank" href="https://www.pokemon.com/us">
                                     <i class="fas fa-globe"></i> Official Pokemon Website
                                 </a>
-                                <a class="navbar-item pill-navbar-item" href="https://pokemongolive.com/?hl=en">
+                                <a class="navbar-item pill-navbar-item" target="_blank" href="https://pokemongolive.com/?hl=en">
                                     <i class="fas fa-mobile-alt"></i> Pokemon Go
                                 </a>
-                                <a class="navbar-item pill-navbar-item"
+                                <a class="navbar-item pill-navbar-item" target="_blank"
                                     href="https://www.youtube.com/channel/UCFctpiB_Hnlk3ejWfHqSm6Q">
                                     <i class="fas fa-play"></i> Official Pokemon YouTube
                                 </a>
@@ -76,13 +76,13 @@
                 <div class="main-details">
                     <!-- MAIN POKEMON INFO -->
                     <div class="pokemon-info">
-                        <div>
+                        <div id="pokemon-bio">
                             <!-- Name/Number -->
-                            <h1 id="pokemon-name"></h1>
+                            <h1 id="pokemon-name">Bulbasaur: #0001</h1>
                             <!-- Species -->
-                            <p id="pokemon-species"></p>
+                            <p id="pokemon-species">Seed Pokemon</p>
                             <!-- Dex Entry - DETAILED INFORMATION API? -->
-                            <p id="pokemon-entry"></p>
+                            <p id="pokemon-entry">Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger.</p>
                         </div>
                         <!-- Picture of Mon -->
                         <div class="dex-photo-container">
@@ -161,7 +161,7 @@
             </div>
         </aside>
     </div>
-
+    <script src="./assets/js/database.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 
