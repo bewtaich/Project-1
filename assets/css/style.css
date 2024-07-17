@@ -1,6 +1,6 @@
 /* QUESTIONS IN ALL CAPS */
 body {
-    font-family: 'Krona One', sans-serif; /* DO WE LIKE THIS FONT? */
+    font-family: 'Krona One', sans-serif;
     margin: 0;
     height: 100vh;
     display: flex;
@@ -8,13 +8,14 @@ body {
 }
 
 .header-background {
-    background-image: url('https://frostilyte.ca/wp-content/uploads/2023/11/pokemon-banner.png?w=816');
+    background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0bedb362-1325-47fe-8fb8-8a1224de0221/def1knu-17d5f251-0deb-4b14-8229-29fa3ddfbfd9.png/v1/fill/w_1280,h_427,q_80,strp/pokeball_twitter_header_by_sailortrekkie92_def1knu-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDI3IiwicGF0aCI6IlwvZlwvMGJlZGIzNjItMTMyNS00N2ZlLThmYjgtOGExMjI0ZGUwMjIxXC9kZWYxa251LTE3ZDVmMjUxLTBkZWItNGIxNC04MjI5LTI5ZmEzZGRmYmZkOS5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.BUKSZS-T76iqkw9K5abw8a3u2fPYsVuPMRYzQ8O0ujY');
     background-size: cover;
     background-position: center;
-    height: 350px; /* DO WE LIKE THIS SIZE? */
+    height: 350px;
     width: 100%;
     position: relative;
     display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
@@ -40,19 +41,19 @@ body {
     background-color: #ed4035 !important;
     color: white !important;
     border-radius: 50px !important;
-    padding: 5px 10px !important;
-    margin: 0 5px !important;
+    padding: 3px 7px !important;
+    margin: 0 3px !important;
     text-transform: uppercase !important;
     font-weight: bold !important;
-    font-size: 0.7em !important;
+    font-size: 0.5em !important;
     transition: background-color 0.3s ease !important;
-    border: none !important;
+    border: 2px solid white !important;
     display: flex;
     align-items: center;
 }
 
 .pill-navbar-item i {
-    margin-right: 5px;
+    margin-right: 3px;
 }
 
 .pill-navbar-item:hover {
@@ -67,15 +68,41 @@ body {
 }
 
 main {
-    flex: 2; /* FOR MAIN TO BE 1/2 */
+    flex: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
 }
 
+.search-bar {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.main-content {
+    display: flex;
+    width: 100%;
+}
+
+.main-aside {
+    flex: 1;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-right: 20px;
+}
+
+.main-details {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+}
+
 .side-bar {
-    flex: 1; /* FOR SIDEBARS TO BE 1/4 */
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -116,21 +143,6 @@ main {
     align-items: center;
     background-color: #d3d3d3;
     width: 100%;
-}
-
-.search-bar {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.search-bar .input {
-    width: 80%;
-    max-width: 400px;
-    border-radius: 50px;
-    padding: 10px 20px;
-    border: 2px solid #ed4035;
 }
 
 .pokemon-info {
@@ -186,7 +198,6 @@ main {
     margin-bottom: 10px;
     text-transform: uppercase;
 }
-
 
 /*Stat Bars*/
 #hp {
@@ -271,27 +282,7 @@ main {
     min-width: 25px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
     .content-wrapper {
         flex-direction: column;
     }
@@ -302,5 +293,32 @@ main {
     .side-bar {
         order: 2;
         width: 100%;
+    }
+    .main-content {
+        flex-direction: column;
+    }
+    .main-aside {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    .navbar-menu .navbar-item {
+        font-size: 0.4em;
+        padding: 2px 5px;
+    }
+    .header-logo {
+        height: 100px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .header-background {
+        height: 450px;
+    }
+    .header-logo {
+        height: 200px;
+    }
+    .navbar-menu .navbar-item {
+        font-size: 0.6em;
+        padding: 4px 10px;
     }
 }
