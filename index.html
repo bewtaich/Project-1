@@ -42,13 +42,13 @@
                     <div class="container">
                         <div class="navbar-menu is-active">
                             <div class="navbar-end">
-                                <a class="navbar-item pill-navbar-item" href="https://www.pokemon.com/us">
+                                <a class="navbar-item pill-navbar-item" target="_blank" href="https://www.pokemon.com/us">
                                     <i class="fas fa-globe"></i> Official Pokemon Website
                                 </a>
-                                <a class="navbar-item pill-navbar-item" href="https://pokemongolive.com/?hl=en">
+                                <a class="navbar-item pill-navbar-item" target="_blank" href="https://pokemongolive.com/?hl=en">
                                     <i class="fas fa-mobile-alt"></i> Pokemon Go
                                 </a>
-                                <a class="navbar-item pill-navbar-item"
+                                <a class="navbar-item pill-navbar-item" target="_blank"
                                     href="https://www.youtube.com/channel/UCFctpiB_Hnlk3ejWfHqSm6Q">
                                     <i class="fas fa-play"></i> Official Pokemon YouTube
                                 </a>
@@ -76,66 +76,13 @@
                 <div class="main-details">
                     <!-- MAIN POKEMON INFO -->
                     <div class="pokemon-info">
-                        <div>
+                        <div id="pokemon-bio">
                             <!-- Name/Number -->
-                            <h1 id="pokemon-name"></h1>
+                            <h1 id="pokemon-name">Bulbasaur: #0001</h1>
                             <!-- Species -->
-                            <p id="pokemon-species"></p>
+                            <p id="pokemon-species">Seed Pokemon</p>
                             <!-- Dex Entry - DETAILED INFORMATION API? -->
-                            <p id="pokemon-entry"></p>
-                        </div>
-                        <!-- Picture of Mon -->
-                        <div class="dex-photo-container">
-                            <img id='dexPhoto' src="./assets/images/images-removebg-preview.png" alt="Pokemon image">
-        <main>
-            <!-- Header with Pokemon background image and nav bar w/ links to popular pokemon sites -->
-            <header class="header-background">
-                <img src="./assets/images/Pokédex_logo.png" alt="Pokedex Logo" class="header-logo">
-                <nav class="navbar">
-                    <div class="container">
-                        <div class="navbar-menu is-active">
-                            <div class="navbar-end">
-                                <a class="navbar-item pill-navbar-item" href="https://www.pokemon.com/us">
-                                    <i class="fas fa-globe"></i> Official Pokemon Website
-                                </a>
-                                <a class="navbar-item pill-navbar-item" href="https://pokemongolive.com/?hl=en">
-                                    <i class="fas fa-mobile-alt"></i> Pokemon Go
-                                </a>
-                                <a class="navbar-item pill-navbar-item"
-                                    href="https://www.youtube.com/channel/UCFctpiB_Hnlk3ejWfHqSm6Q">
-                                    <i class="fas fa-play"></i> Official Pokemon YouTube
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
-            </header>
-
-            <!-- Search Bar -->
-            <div class="search-bar">
-                <form id="search-form">
-                    <input type="text" name="search" id="search" class="input is-medium"
-                        placeholder="Search for a Pokémon">
-                </form>
-            </div>
-
-            <div class="main-content">
-                <!-- Aside Section -->
-                <aside class="main-aside">
-                    <h2>Pokemon Search Index</h2>
-                    <!-- Add content here -->
-                </aside>
-
-                <div class="main-details">
-                    <!-- MAIN POKEMON INFO -->
-                    <div class="pokemon-info">
-                        <div>
-                            <!-- Name/Number -->
-                            <h1 id="pokemon-name"></h1>
-                            <!-- Species -->
-                            <p id="pokemon-species"></p>
-                            <!-- Dex Entry - DETAILED INFORMATION API? -->
-                            <p id="pokemon-entry"></p>
+                            <p id="pokemon-entry">Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger.</p>
                         </div>
                         <!-- Picture of Mon -->
                         <div class="dex-photo-container">
@@ -148,59 +95,49 @@
                         <div class="container">
                             <div class="attributes-section" id="pokemon-attributes">
                                 <h2>Pokemon Attributes</h2>
-                                <div class="attribute" id="hp">
-                                    <p>HP: <span>--</span></p>
-                                </div>
-                                <div class="attribute" id="attack">
-                                    <p>Attack: <span>--</span></p>
-                                </div>
-                                <div class="attribute" id="special-attack">
-                                    <p>Special Attack: <span>--</span></p>
-                                </div>
-                                <div class="attribute" id="defense">
-                                    <p>Defense: <span>--</span></p>
-                                </div>
-                                <div class="attribute" id="special-defense">
-                                    <p>Special Defense: <span>--</span></p>
-                                </div>
-                                <div class="attribute" id="speed">
-                                    <p>Speed: <span>--</span></p>
-                                </div>
-                            </div>
-                            <div class="evolution-timeline" id="evolution-timeline">
-                                <h2>Evolution Timeline</h2>
-                                <p>--</p>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-            </div>
-                        </div>
-                    </div>
 
-                    <!-- ATTRIBUTES AND EVOLUTION TIMELINE SECTION -->
-                    <section class="section">
-                        <div class="container">
-                            <div class="attributes-section" id="pokemon-attributes">
-                                <h2>Pokemon Attributes</h2>
                                 <div class="attribute" id="hp">
-                                    <p>HP: <span>--</span></p>
+                                    <p class="stat">HP: <span id="hpText">--</span></p>
+                                    <div class="bar">
+                                        <div id="hpbar"></div>
+                                    </div>
                                 </div>
+
                                 <div class="attribute" id="attack">
-                                    <p>Attack: <span>--</span></p>
+                                    <p class="stat">Attack: <span id="atkText">--</span></p>
+                                    <div class="bar">
+                                        <div id="atkbar"></div>
+                                    </div>
                                 </div>
-                                <div class="attribute" id="special-attack">
-                                    <p>Special Attack: <span>--</span></p>
-                                </div>
+
                                 <div class="attribute" id="defense">
-                                    <p>Defense: <span>--</span></p>
+                                    <p class="stat">Defense: <span id="defText">--</span></p>
+                                    <div class="bar">
+                                        <div id="defbar"></div>
+                                    </div>
                                 </div>
+
+                                <div class="attribute" id="special-attack">
+                                    <p class="stat">Sp. Atk:<span id="spatkText">--</span></p>
+                                    <div class="bar">
+                                        <div id="spatkbar"></div>
+                                    </div>
+                                </div>
+
                                 <div class="attribute" id="special-defense">
-                                    <p>Special Defense: <span>--</span></p>
+                                    <p class="stat">Sp. Def: <span id="spdefText">--</span></p>
+                                    <div class="bar">
+                                        <div id="spdefbar"></div>
+                                    </div>
                                 </div>
+
                                 <div class="attribute" id="speed">
-                                    <p>Speed: <span>--</span></p>
+                                    <p class="stat">Speed: <span id="speedText">--</span></p>
+                                    <div class="bar">
+                                        <div id="speedbar"></div>
+                                    </div>
                                 </div>
+
                             </div>
                             <div class="evolution-timeline" id="evolution-timeline">
                                 <h2>Evolution Timeline</h2>
@@ -212,6 +149,7 @@
             </div>
         </main>
 
+        
         <!-- Right Side Bar -->
         <aside class="side-bar">
             <div class="right-container">

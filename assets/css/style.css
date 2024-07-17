@@ -148,8 +148,13 @@ main {
 .pokemon-info {
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: rown;
     align-items: center;
+    border: 1px solid black;
+}
+
+#pokemon-bio {
+border: 1px solid black;
 }
 
 .dex-photo-container {
@@ -198,6 +203,7 @@ main {
     margin-bottom: 10px;
     text-transform: uppercase;
 }
+
 
 
 /*Stat Bars*/
@@ -283,9 +289,7 @@ main {
     min-width: 25px;
 }
 
-@media (max-width: 1024px) {
-  
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
     .content-wrapper {
         flex-direction: column;
     }

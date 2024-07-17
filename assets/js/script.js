@@ -39,6 +39,7 @@ const fetchImage = function() {
 
 const fetchStats = function () {
    const empty = [];
+   
     fetch(pokeURL)
     .then(function(response){    
     return response.json();
@@ -78,12 +79,12 @@ const fetchStats = function () {
         speedbar.style.width=`${((empty[5]/255)*100)}%`
 
         })   
-
-       
-
-    
-
     }
+
+const fetchBio = function () {
+
+}
+
 
 fetchImage();
 fetchStats();
