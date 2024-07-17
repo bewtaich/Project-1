@@ -151,10 +151,27 @@ main {
     flex-direction: rown;
     align-items: center;
     border: 1px solid black;
+    
 }
 
 #pokemon-bio {
-border: 1px solid black;
+color: black;
+min-height: 100%;
+padding: 7px;
+}
+
+#pokemon-name{
+    font-size: 1.7em;
+    color: black;
+    margin-bottom: 8px;
+}
+
+#pokemon-species{
+    margin-bottom: 15px;
+}
+
+#pokemon-entry{
+    
 }
 
 .dex-photo-container {
@@ -163,6 +180,8 @@ border: 1px solid black;
     align-items: center;
     width: 100%;
     margin: 20px 0;
+    height:100%;
+    padding:5px;
 }
 
 .dex-photo-container img {

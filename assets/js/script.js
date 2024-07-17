@@ -39,7 +39,7 @@ const fetchImage = function() {
 
 const fetchStats = function () {
    const empty = [];
-   
+
     fetch(pokeURL)
     .then(function(response){    
     return response.json();
@@ -83,6 +83,15 @@ const fetchStats = function () {
 
 const fetchBio = function () {
 
+    fetch(pokeURL)
+    .then(function(response){    
+    return response.json();
+    })
+
+    .then(function(data){
+        const pokeObjName=data
+
+    })
 }
 
 
