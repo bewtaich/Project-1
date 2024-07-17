@@ -168,6 +168,10 @@ main {
 
 .attribute {
     margin-bottom: 10px;
+    border: 2px solid #f3be19;
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
 }
 
 .evolution-timeline {
@@ -182,6 +186,110 @@ main {
     margin-bottom: 10px;
     text-transform: uppercase;
 }
+
+
+/*Stat Bars*/
+#hp {
+    background-color: #aae66a;
+}
+
+#attack {
+    background-color: #f2dc6d;
+}
+
+#defense {
+    background-color: #e79966;
+}
+
+#special-attack {
+    background-color: #7dd9f5;
+}
+
+#special-defense {
+    background-color: #8ca1e9;
+}
+
+#speed {
+    background-color: #d970c9;
+}
+
+.stat {
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+    padding: 5px;
+    border-right: 2px solid #f3be19;
+
+}
+
+.bar {
+    min-height: 100%;
+    width: 60%;
+    display: flex;
+    flex: 0 0 auto;
+    
+}
+
+#hpbar{
+    height:25px;
+    background-color:#80d926;
+    border:1px solid #66ae1d;
+    min-width: 25px;
+    
+}
+
+#atkbar{
+    height:25px;
+    background-color: #ebca27;
+    border: 1px solid #c7ad26;
+    min-width: 25px;
+}
+
+#defbar{
+    height:25px;
+    background-color: #dc6316;
+    border: 1px solid #a24810;
+    min-width: 25px;
+}
+
+#spatkbar{
+    height:25px;
+    background-color: #4fc4f0;
+    border: 1px solid #43a3c7;
+    min-width: 25px;
+}
+#spdefbar{
+    height:25px;
+    background-color: #4f6fdd;
+    border: 1px solid #4760b7;
+    min-width: 25px;
+}
+#speedbar{
+    height:25px;
+    background-color: #c82aac;
+    border: 1px solid #861b72;
+    min-width: 25px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media (max-width: 1024px) {
     .content-wrapper {
