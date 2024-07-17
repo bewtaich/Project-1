@@ -16,28 +16,6 @@
 <body>
     <!-- QUESTIONS IN ALL CAPS -->
     <!-- Header with Pokemon background image and nav bar w/ links to popular pokemon sites DO WE WANT TO LINK ANYTHING ELSE? -->
-    <header class="header-background">
-        <img src="./assets/images/Pokédex_logo.png" alt="Pokedex Logo" class="header-logo">
-        <nav class="navbar">
-            <div class="container">
-                <div class="navbar-menu is-active">
-                    <div class="navbar-end">
-                        <a class="navbar-item pill-navbar-item" href="https://www.pokemon.com/us">
-                            <i class="fas fa-globe"></i> Official Pokemon Website
-                        </a>
-                        <a class="navbar-item pill-navbar-item" href="https://pokemongolive.com/?hl=en">
-                            <i class="fas fa-mobile-alt"></i> Pokemon Go
-                        </a>
-                        <a class="navbar-item pill-navbar-item"
-                            href="https://www.youtube.com/channel/UCFctpiB_Hnlk3ejWfHqSm6Q">
-                            <i class="fas fa-play"></i> Official Pokemon YouTube
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
-
     <div class="content-wrapper">
         <!-- Left Side Bar -->
         <aside class="side-bar">
@@ -57,7 +35,30 @@
 
         <!-- Main Pokedex Content -->
         <main>
-            <!-- Search Bar Vertical -->
+            <!-- Header with Pokemon background image and nav bar w/ links to popular pokemon sites -->
+            <header class="header-background">
+                <img src="./assets/images/Pokédex_logo.png" alt="Pokedex Logo" class="header-logo">
+                <nav class="navbar">
+                    <div class="container">
+                        <div class="navbar-menu is-active">
+                            <div class="navbar-end">
+                                <a class="navbar-item pill-navbar-item" href="https://www.pokemon.com/us">
+                                    <i class="fas fa-globe"></i> Official Pokemon Website
+                                </a>
+                                <a class="navbar-item pill-navbar-item" href="https://pokemongolive.com/?hl=en">
+                                    <i class="fas fa-mobile-alt"></i> Pokemon Go
+                                </a>
+                                <a class="navbar-item pill-navbar-item"
+                                    href="https://www.youtube.com/channel/UCFctpiB_Hnlk3ejWfHqSm6Q">
+                                    <i class="fas fa-play"></i> Official Pokemon YouTube
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+
+            <!-- Search Bar -->
             <div class="search-bar">
                 <form id="search-form">
                     <input type="text" name="search" id="search" class="input is-medium"
@@ -65,50 +66,61 @@
                 </form>
             </div>
 
-            <!-- MAIN POKEMON INFO -->
-            <div class="pokemon-info">
-                <div>
-                    <!-- Name/Number -->
-                    <h1 id="pokemon-name"></h1>
-                    <!-- Species -->
-                    <p id="pokemon-species"></p>
-                    <!-- Dex Entry - DETAILED INFORMATION API? -->
-                    <p id="pokemon-entry"></p>
-                </div>
-                <!-- Picture of Mon -->
-                <div class="dex-photo-container">
-                    <img id='dexPhoto' src="./assets/images/images-removebg-preview.png" alt="Pokemon image">
-                </div>
-                <!-- ATTRIBUTES AND EVOLUTION TIMELINE SECTION -->
-                <section class="section">
-                    <div class="container">
-                        <div class="attributes-section" id="pokemon-attributes">
-                            <h2>Pokemon Attributes</h2>
-                            <div class="attribute" id="hp">
-                                <p>HP: <span>--</span></p>
-                            </div>
-                            <div class="attribute" id="attack">
-                                <p>Attack: <span>--</span></p>
-                            </div>
-                            <div class="attribute" id="special-attack">
-                                <p>Special Attack: <span>--</span></p>
-                            </div>
-                            <div class="attribute" id="defense">
-                                <p>Defense: <span>--</span></p>
-                            </div>
-                            <div class="attribute" id="special-defense">
-                                <p>Special Defense: <span>--</span></p>
-                            </div>
-                            <div class="attribute" id="speed">
-                                <p>Speed: <span>--</span></p>
-                            </div>
+            <div class="main-content">
+                <!-- Aside Section -->
+                <aside class="main-aside">
+                    <h2>Pokemon Search Index</h2>
+                    <!-- Add content here -->
+                </aside>
+
+                <div class="main-details">
+                    <!-- MAIN POKEMON INFO -->
+                    <div class="pokemon-info">
+                        <div>
+                            <!-- Name/Number -->
+                            <h1 id="pokemon-name"></h1>
+                            <!-- Species -->
+                            <p id="pokemon-species"></p>
+                            <!-- Dex Entry - DETAILED INFORMATION API? -->
+                            <p id="pokemon-entry"></p>
                         </div>
-                        <div class="evolution-timeline" id="evolution-timeline">
-                            <h2>Evolution Timeline</h2>
-                            <p>--</p>
+                        <!-- Picture of Mon -->
+                        <div class="dex-photo-container">
+                            <img id='dexPhoto' src="./assets/images/images-removebg-preview.png" alt="Pokemon image">
                         </div>
                     </div>
-                </section>
+
+                    <!-- ATTRIBUTES AND EVOLUTION TIMELINE SECTION -->
+                    <section class="section">
+                        <div class="container">
+                            <div class="attributes-section" id="pokemon-attributes">
+                                <h2>Pokemon Attributes</h2>
+                                <div class="attribute" id="hp">
+                                    <p>HP: <span>--</span></p>
+                                </div>
+                                <div class="attribute" id="attack">
+                                    <p>Attack: <span>--</span></p>
+                                </div>
+                                <div class="attribute" id="special-attack">
+                                    <p>Special Attack: <span>--</span></p>
+                                </div>
+                                <div class="attribute" id="defense">
+                                    <p>Defense: <span>--</span></p>
+                                </div>
+                                <div class="attribute" id="special-defense">
+                                    <p>Special Defense: <span>--</span></p>
+                                </div>
+                                <div class="attribute" id="speed">
+                                    <p>Speed: <span>--</span></p>
+                                </div>
+                            </div>
+                            <div class="evolution-timeline" id="evolution-timeline">
+                                <h2>Evolution Timeline</h2>
+                                <p>--</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
             </div>
         </main>
 
