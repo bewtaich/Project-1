@@ -90,7 +90,7 @@ const bioURL =`https://pokeapi.co/api/v2/pokemon-species/${pokemon}/`
     .then(function(response){    
     return response.json();
     })
-
+//Pull Name, Number, Dex Entry
     .then(function(data){
         const pokeObjName=data
         console.log(pokeObjName);

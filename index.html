@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,13 +11,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
     <title>Pokedex</title>
 </head>
-
 <body>
-    <!-- QUESTIONS IN ALL CAPS -->
-    <!-- Header with Pokemon background image and nav bar w/ links to popular pokemon sites DO WE WANT TO LINK ANYTHING ELSE? -->
+    <!-- Header with Pokemon background image and nav bar w/ links to popular pokemon sites -->
+    <header class="header-background">
+        <img src="./assets/images/Pokédex_logo.png" alt="Pokedex Logo" class="header-logo">
+        <nav class="navbar">
+            <div class="container">
+                <div class="navbar-menu is-active">
+                    <div class="navbar-end">
+                        <a class="navbar-item pill-navbar-item" href="https://www.pokemon.com/us">
+                            <i class="fas fa-globe"></i> Official Pokemon Website
+                        </a>
+                        <a class="navbar-item pill-navbar-item" href="https://pokemongolive.com/?hl=en">
+                            <i class="fas fa-mobile-alt"></i> Pokemon Go
+                        </a>
+                        <a class="navbar-item pill-navbar-item" href="https://www.youtube.com/channel/UCFctpiB_Hnlk3ejWfHqSm6Q">
+                            <i class="fas fa-play"></i> Official Pokemon YouTube
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
     <div class="content-wrapper">
         <!-- Left Side Bar -->
-        <aside class="side-bar">
+        <aside class="side-bar-left">
             <div class="left-container">
                 <!-- Party of 6 -->
                 <div class="party-of-6">
@@ -32,47 +49,20 @@
                 </div>
             </div>
         </aside>
-
         <!-- Main Pokedex Content -->
         <main>
-            <!-- Header with Pokemon background image and nav bar w/ links to popular pokemon sites -->
-            <header class="header-background">
-                <img src="./assets/images/Pokédex_logo.png" alt="Pokedex Logo" class="header-logo">
-                <nav class="navbar">
-                    <div class="container">
-                        <div class="navbar-menu is-active">
-                            <div class="navbar-end">
-                                <a class="navbar-item pill-navbar-item" target="_blank" href="https://www.pokemon.com/us">
-                                    <i class="fas fa-globe"></i> Official Pokemon Website
-                                </a>
-                                <a class="navbar-item pill-navbar-item" target="_blank" href="https://pokemongolive.com/?hl=en">
-                                    <i class="fas fa-mobile-alt"></i> Pokemon Go
-                                </a>
-                                <a class="navbar-item pill-navbar-item" target="_blank"
-                                    href="https://www.youtube.com/channel/UCFctpiB_Hnlk3ejWfHqSm6Q">
-                                    <i class="fas fa-play"></i> Official Pokemon YouTube
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
-            </header>
-
             <!-- Search Bar -->
             <div class="search-bar">
                 <form id="search-form">
-                    <input type="text" name="search" id="search" class="input is-medium"
-                        placeholder="Search for a Pokémon">
+                    <input type="text" name="search" id="search" class="input is-medium" placeholder="Search for a Pokémon">
                 </form>
             </div>
-
             <div class="main-content">
                 <!-- Aside Section -->
                 <aside class="main-aside">
                     <h2>Pokemon Search Index</h2>
                     <!-- Add content here -->
                 </aside>
-
                 <div class="main-details">
                     <!-- MAIN POKEMON INFO -->
                     <div class="pokemon-info">
@@ -82,14 +72,16 @@
                             <!-- Species -->
                             <p id="pokemon-species">Seed Pokemon</p>
                             <!-- Dex Entry - DETAILED INFORMATION API? -->
+
+                            <p id="pokemon-entry"></p>
                             <p id="pokemon-entry">Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger.</p>
+
                         </div>
                         <!-- Picture of Mon -->
                         <div class="dex-photo-container">
                             <img id='dexPhoto' src="./assets/images/images-removebg-preview.png" alt="Pokemon image">
                         </div>
                     </div>
-
                     <!-- ATTRIBUTES AND EVOLUTION TIMELINE SECTION -->
                     <section class="section">
                         <div class="container">
@@ -116,7 +108,6 @@
                                         <div id="defbar"></div>
                                     </div>
                                 </div>
-
                                 <div class="attribute" id="special-attack">
                                     <p class="stat">Sp. Atk:<span id="spatkText">--</span></p>
                                     <div class="bar">
@@ -149,9 +140,8 @@
             </div>
         </main>
 
-        
         <!-- Right Side Bar -->
-        <aside class="side-bar">
+        <aside class="side-bar-right">
             <div class="right-container">
                 <!-- PokeTrivia API area -->
                 <div class="poke-trivia">
@@ -161,6 +151,9 @@
             </div>
         </aside>
     </div>
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
     <script src="./assets/js/database.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
