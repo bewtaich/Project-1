@@ -20,7 +20,7 @@ function autocompleteMatch(input) {
   if (input == '') {
     return [];
   }
-  var reg = new RegExp(input)
+  var reg = new RegExp(input, 'i')
   return database.filter(function(term) {
 	  if (term.match(reg)) {
   	  return term;
