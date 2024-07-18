@@ -37,6 +37,7 @@ const fetchImage = function() {
          })  
     }
 
+// Display Stats and adjust bars length accordingly
 const fetchStats = function () {
    const empty = [];
 
@@ -82,22 +83,25 @@ const fetchStats = function () {
     }
 
 const fetchBio = function () {
+const bioURL =`https://pokeapi.co/api/v2/pokemon-species/${pokemon}/`
 
-    fetch(pokeURL)
+
+    fetch(bioURL)
     .then(function(response){    
     return response.json();
     })
 
     .then(function(data){
         const pokeObjName=data
-
+        console.log(pokeObjName);
+        console.log(pokeObjName.evolution_chain.url);
     })
 }
 
 
 fetchImage();
 fetchStats();
-
+fetchBio();
 }
 
 

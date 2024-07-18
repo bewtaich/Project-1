@@ -15,6 +15,7 @@ return response.json();
     for (let i=0;i<1025;i++){
        database.push(pokeObj.results[i].name) 
     }
+    
 })
 
 console.log(database);
