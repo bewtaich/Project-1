@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,15 +12,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
     <title>BREAKOUT Room 3 Pokedex</title>
     <style>
-        /* Custom styles to reduce padding */
-        .main-details, .section {
+        .main-details,
+        .section {
             padding-top: 10px !important;
         }
+
         .pokemon-info {
             margin-bottom: 0 !important;
         }
     </style>
 </head>
+
 <body>
     <!-- Header with Pokemon background image and nav bar w/ links to popular pokemon sites -->
     <header class="header-background">
@@ -34,7 +37,8 @@
                         <a class="navbar-item pill-navbar-item" href="https://pokemongolive.com/?hl=en">
                             <i class="fas fa-mobile-alt"></i> Pokemon Go
                         </a>
-                        <a class="navbar-item pill-navbar-item" href="https://www.youtube.com/channel/UCFctpiB_Hnlk3ejWfHqSm6Q">
+                        <a class="navbar-item pill-navbar-item"
+                            href="https://www.youtube.com/channel/UCFctpiB_Hnlk3ejWfHqSm6Q">
                             <i class="fas fa-play"></i> Official Pokemon YouTube
                         </a>
                     </div>
@@ -66,7 +70,8 @@
                     <!-- Search Bar -->
                     <div class="search-bar">
                         <form autocomplete="off">
-                            <input type="text" name="search" id="search" onKeyUp="showResults(this.value)" class="input is-medium search-input" placeholder="Search for a Pokémon" />
+                            <input type="text" name="search" id="search" onKeyUp="showResults(this.value)"
+                                class="input is-medium search-input" placeholder="Search for a Pokémon" />
                             <div id="result"></div>
                         </form>
                     </div>
@@ -84,7 +89,8 @@
                             <p id="pokemon-species"></p>
                             <!-- Dex Entry - DETAILED INFORMATION API? -->
                             <p id="pokemon-entry"></p>
-                            <p id="pokemon-entry">Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger.</p>
+                            <p id="pokemon-entry">Bulbasaur can be seen napping in bright sunlight. There is a seed on
+                                its back. By soaking up the sun's rays, the seed grows progressively larger.</p>
                         </div>
                         <!-- Picture of Mon -->
                         <div class="dex-photo-container">
@@ -156,4 +162,5 @@
     <script src="./assets/js/script.js"></script>
     <script src="./assets/js/database.js"></script>
 </body>
+
 </html>
