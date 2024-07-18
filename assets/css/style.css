@@ -1,4 +1,3 @@
-/* QUESTIONS IN ALL CAPS */
 body {
     font-family: 'Krona One', sans-serif;
     margin: 0;
@@ -20,7 +19,7 @@ body {
 }
 
 .header-logo {
-    height: 150px;
+    height: 112.5px; /* 25% smaller than the original 150px */
     margin-left: 20px;
 }
 
@@ -41,11 +40,11 @@ body {
     background-color: #ed4035 !important;
     color: white !important;
     border-radius: 50px !important;
-    padding: 3px 7px !important;
-    margin: 0 3px !important;
+    padding: 2px 5px !important; /* Reduced padding */
+    margin: 0 2px !important; /* Reduced margin */
     text-transform: uppercase !important;
     font-weight: bold !important;
-    font-size: 0.5em !important;
+    font-size: 0.6em !important; /* Reduced font size */
     transition: background-color 0.3s ease !important;
     border: 2px solid white !important;
     display: flex;
@@ -53,7 +52,7 @@ body {
 }
 
 .pill-navbar-item i {
-    margin-right: 3px;
+    margin-right: 2px; /* Reduced margin */
 }
 
 .pill-navbar-item:hover {
@@ -65,10 +64,32 @@ body {
     display: flex;
     flex: 1;
     width: 100%;
+    flex-direction: row; /* Default layout for large screens */
+}
+
+.side-bar-left {
+    order: 1;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.side-bar-right {
+    order: 3;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
 }
 
 main {
-    flex: 2;
+    order: 2;
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -86,6 +107,7 @@ main {
 .main-content {
     display: flex;
     width: 100%;
+    flex-direction: column;
 }
 
 .main-aside {
@@ -99,15 +121,6 @@ main {
     flex: 3;
     display: flex;
     flex-direction: column;
-}
-
-.side-bar {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
 }
 
 .left-container,
@@ -223,8 +236,6 @@ padding: 7px;
     text-transform: uppercase;
 }
 
-
-
 /*Stat Bars*/
 #hp {
     background-color: #aae66a;
@@ -256,7 +267,6 @@ padding: 7px;
     width: 40%;
     padding: 5px;
     border-right: 2px solid #f3be19;
-
 }
 
 .bar {
@@ -264,87 +274,121 @@ padding: 7px;
     width: 60%;
     display: flex;
     flex: 0 0 auto;
-    
 }
 
-#hpbar{
-    height:25px;
-    background-color:#80d926;
-    border:1px solid #66ae1d;
+#hpbar {
+    height: 25px;
+    background-color: #80d926;
+    border: 1px solid #66ae1d;
     min-width: 25px;
-    
 }
 
-#atkbar{
-    height:25px;
+#atkbar {
+    height: 25px;
     background-color: #ebca27;
     border: 1px solid #c7ad26;
     min-width: 25px;
 }
 
-#defbar{
-    height:25px;
+#defbar {
+    height: 25px;
     background-color: #dc6316;
     border: 1px solid #a24810;
     min-width: 25px;
 }
 
-#spatkbar{
-    height:25px;
+#spatkbar {
+    height: 25px;
     background-color: #4fc4f0;
     border: 1px solid #43a3c7;
     min-width: 25px;
 }
-#spdefbar{
-    height:25px;
+
+#spdefbar {
+    height: 25px;
     background-color: #4f6fdd;
     border: 1px solid #4760b7;
     min-width: 25px;
 }
-#speedbar{
-    height:25px;
+
+#speedbar {
+    height: 25px;
     background-color: #c82aac;
     border: 1px solid #861b72;
     min-width: 25px;
+}
+
+
+/* Media Queries */
+@media (min-width: 769px) {
+    .navbar-end {
+        justify-content: flex-end !important;
+        flex-direction: column !important;
+        margin-left: auto !important;
+    }
+    .navbar-menu {
+        box-shadow: none !important;
+    }
+}
+
+@media (max-width: 1024px) {
+    .content-wrapper {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .navbar-menu {
+        box-shadow: none !important;
+    }
+    .side-bar-left,
+    .side-bar-right {
+        width: 25%;
+    }
+
+    main {
+        width: 50%;
+    }
+
+    .navbar {
+        padding: 10px;
+        bottom: 0;
+        right: 0;
+    }
+
+    .pill-navbar-item {
+        padding: 2px 5px !important;
+        margin: 0 2px !important;
+        font-size: 0.6em !important;
+    }
 }
 
 @media (max-width: 768px) {
     .content-wrapper {
         flex-direction: column;
     }
+
+    .side-bar-left,
+    .side-bar-right {
+        display: none;
+        /* Hide the asides on mobile screens */
+    }
+
     main {
         order: 1;
         width: 100%;
     }
-    .side-bar {
-        order: 2;
-        width: 100%;
-    }
-    .main-content {
-        flex-direction: column;
-    }
-    .main-aside {
-        margin-right: 0;
-        margin-bottom: 20px;
-    }
-    .navbar-menu .navbar-item {
-        font-size: 0.4em;
-        padding: 2px 5px;
-    }
-    .header-logo {
-        height: 100px;
-    }
-}
 
-@media (min-width: 1280px) {
-    .header-background {
-        height: 450px;
+    .navbar {
+        padding: 5px;
+        bottom: 0;
+        right: 0;
     }
-    .header-logo {
-        height: 200px;
+
+    .pill-navbar-item {
+        padding: 1px 3px !important;
+        margin: 0 1px !important;
+        font-size: 0.5em !important;
     }
-    .navbar-menu .navbar-item {
-        font-size: 0.6em;
-        padding: 4px 10px;
+    .navbar-menu {
+        box-shadow: none !important;
     }
 }
