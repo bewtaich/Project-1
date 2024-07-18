@@ -1,4 +1,3 @@
-
 const pokeURL=`https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0`
 const database=[];
 
@@ -17,4 +16,26 @@ return response.json();
     }
 })
 
+function autocompleteMatch(input) {
+  if (input == '') {
+    return [];
+  }
+  var reg = new RegExp(input)
+  return database.filter(function(term) {
+	  if (term.match(reg)) {
+  	  return term;
+	  }
+  });
+}
+
+function showResults(val) {
+  res = document.getElementById("result");
+  res.innerHTML = '';
+  let list = '';
+  let terms = autocompleteMatch(val);
+  for (i=0; i<terms.length; i++) {
+    list += '<li>' + terms[i] + '</li>';
+  }
+  res.innerHTML = '<ul>' + list + '</ul>';
+}
 console.log(database);

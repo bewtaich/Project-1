@@ -61,8 +61,9 @@
             <!-- Search Bar -->
             <div class="search-bar">
                 <form id="search-form">
-                    <input type="text" name="search" id="search" class="input is-medium"
-                        placeholder="Search for a Pokémon">
+                    <form autocomplete="off"><input type="text" name="search" id="search" onKeyUp="showResults(this.value)" class="input is-medium" placeholder="Search for a Pokémon" />
+                        <div id="result"></div>
+                    </form>
                 </form>
             </div>
 
