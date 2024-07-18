@@ -84,33 +84,25 @@ const fetchStats = function () {
 const fetchBio = function () {
 const bioURL =`https://pokeapi.co/api/v2/pokemon-species/${pokemon}/`
 
-
+//Pull Name, Number, Dex Entry
     fetch(bioURL)
     .then(function(response){    
     return response.json();
     })
-//Pull Name, Number, Dex Entry
     .then(function(data){
         const pokeObjBio=data;
-       
         //Dex-Entry
-
         //Find english text
        const enText = (pokeObjBio.flavor_text_entries.findIndex(obj => obj.language.name === 'en'))
-       
-        //Updates HTML and gets rid of unwanted characters
+        //Updates Dex Entry and gets rid of unwanted characters
        entry.innerHTML=`${pokeObjBio.flavor_text_entries[enText].flavor_text.replace('\f'," ")}`;
+      
+      //Dex Name + #
        const zerofilled = ('0000'+pokeObjBio.id).slice(-4);
-              pkmnName.innerHTML=`${pokemon}: #${zerofilled}`   
+              pkmnName.innerHTML=`${pokemon.charAt(0).toUpperCase()
+                + pokemon.slice(1)}: #${zerofilled}` 
 
-
-       //Dex #
-          
-
-
-})
-
-}
+    })}
 /*
 const fetchEvo = function {
     fetch()
