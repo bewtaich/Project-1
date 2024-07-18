@@ -10,9 +10,11 @@ return response.json();
 })
 .then(function(data){
     const pokeObj=data;
-
+    
     for (let i=0;i<1025;i++){
-       database.push(pokeObj.results[i].name) 
+        const input = pokeObj.results[i].name;
+       database.push(input.charAt(0).toUpperCase() + input.slice(1)) 
+       
     }
 })
 
