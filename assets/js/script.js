@@ -1,7 +1,3 @@
-
-
-
-//
 const dexPhoto=document.getElementById('dexPhoto');
 const search=document.querySelector('form');
 const input=document.getElementById('search');
@@ -11,6 +7,9 @@ const spatkText = document.getElementById('spatkText');
 const defText = document.getElementById('defText');
 const spdefText = document.getElementById('spdefText');
 const speedText = document.getElementById('speedText');
+const Index = document.getElementById('index')
+const entry = document.getElementById('pokemon-entry')
+const pkmnName = document.getElementById('pokemon-name')
 // Changes all pokemon information
 const renderPKMNInfo = function (event) {
  
@@ -92,13 +91,38 @@ const bioURL =`https://pokeapi.co/api/v2/pokemon-species/${pokemon}/`
     })
 //Pull Name, Number, Dex Entry
     .then(function(data){
-        const pokeObjName=data
-        console.log(pokeObjName);
-        console.log(pokeObjName.evolution_chain.url);
+        const pokeObjBio=data;
+       
+        //Dex-Entry
+
+        //Find english text
+       const enText = (pokeObjBio.flavor_text_entries.findIndex(obj => obj.language.name === 'en'))
+       
+        //Updates HTML and gets rid of unwanted characters
+       entry.innerHTML=`${pokeObjBio.flavor_text_entries[enText].flavor_text.replace('\f'," ")}`;
+       const zerofilled = ('0000'+pokeObjBio.id).slice(-4);
+              pkmnName.innerHTML=`${pokemon}: #${zerofilled}`   
+
+
+       //Dex #
+          
+
+
+})
+
+}
+/*
+const fetchEvo = function {
+    fetch()
+    .then(function(response){
+        return response.json();
+    })
+    
+    .then(function(data){
+
     })
 }
-
-
+*/
 fetchImage();
 fetchStats();
 fetchBio();
