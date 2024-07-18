@@ -66,13 +66,16 @@
                 <div class="main-details">
                     <!-- MAIN POKEMON INFO -->
                     <div class="pokemon-info">
-                        <div>
+                        <div id="pokemon-bio">
                             <!-- Name/Number -->
-                            <h1 id="pokemon-name"></h1>
+                            <h1 id="pokemon-name">Bulbasaur: #0001</h1>
                             <!-- Species -->
-                            <p id="pokemon-species"></p>
+                            <p id="pokemon-species">Seed Pokemon</p>
                             <!-- Dex Entry - DETAILED INFORMATION API? -->
+
                             <p id="pokemon-entry"></p>
+                            <p id="pokemon-entry">Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger.</p>
+
                         </div>
                         <!-- Picture of Mon -->
                         <div class="dex-photo-container">
@@ -84,18 +87,21 @@
                         <div class="container">
                             <div class="attributes-section" id="pokemon-attributes">
                                 <h2>Pokemon Attributes</h2>
+
                                 <div class="attribute" id="hp">
                                     <p class="stat">HP: <span id="hpText">--</span></p>
                                     <div class="bar">
                                         <div id="hpbar"></div>
                                     </div>
                                 </div>
+
                                 <div class="attribute" id="attack">
                                     <p class="stat">Attack: <span id="atkText">--</span></p>
                                     <div class="bar">
                                         <div id="atkbar"></div>
                                     </div>
                                 </div>
+
                                 <div class="attribute" id="defense">
                                     <p class="stat">Defense: <span id="defText">--</span></p>
                                     <div class="bar">
@@ -108,18 +114,21 @@
                                         <div id="spatkbar"></div>
                                     </div>
                                 </div>
+
                                 <div class="attribute" id="special-defense">
                                     <p class="stat">Sp. Def: <span id="spdefText">--</span></p>
                                     <div class="bar">
                                         <div id="spdefbar"></div>
                                     </div>
                                 </div>
+
                                 <div class="attribute" id="speed">
                                     <p class="stat">Speed: <span id="speedText">--</span></p>
                                     <div class="bar">
                                         <div id="speedbar"></div>
                                     </div>
                                 </div>
+
                             </div>
                             <div class="evolution-timeline" id="evolution-timeline">
                                 <h2>Evolution Timeline</h2>
@@ -130,6 +139,7 @@
                 </div>
             </div>
         </main>
+
         <!-- Right Side Bar -->
         <aside class="side-bar-right">
             <div class="right-container">
@@ -143,4 +153,9 @@
     </div>
     <script src="./assets/js/script.js"></script>
 </body>
+</html>
+    <script src="./assets/js/database.js"></script>
+    <script src="./assets/js/script.js"></script>
+</body>
+
 </html>

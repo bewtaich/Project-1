@@ -161,8 +161,30 @@ main {
 .pokemon-info {
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: rown;
     align-items: center;
+    border: 1px solid black;
+    
+}
+
+#pokemon-bio {
+color: black;
+min-height: 100%;
+padding: 7px;
+}
+
+#pokemon-name{
+    font-size: 1.7em;
+    color: black;
+    margin-bottom: 8px;
+}
+
+#pokemon-species{
+    margin-bottom: 15px;
+}
+
+#pokemon-entry{
+    
 }
 
 .dex-photo-container {
@@ -171,6 +193,8 @@ main {
     align-items: center;
     width: 100%;
     margin: 20px 0;
+    height:100%;
+    padding:5px;
 }
 
 .dex-photo-container img {
@@ -293,6 +317,7 @@ main {
     border: 1px solid #861b72;
     min-width: 25px;
 }
+
 
 /* Media Queries */
 @media (min-width: 769px) {
