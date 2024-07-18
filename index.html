@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
-    <title>BREAKOUT Room 3 Pokedex</title>
+    <title>Pokedex</title>
 </head>
 <body>
     <!-- Header with Pokemon background image and nav bar w/ links to popular pokemon sites -->
@@ -53,19 +53,13 @@
         <main>
             <!-- Search Bar -->
             <div class="search-bar">
-                <form id="search-form">
-
                     <form autocomplete="off"><input type="text" name="search" id="search" onKeyUp="showResults(this.value)" class="input is-medium" placeholder="Search for a Pokémon" />
                         <div id="result"></div>
                     </form>
-
-                    <input type="text" name="search" id="search" class="input is-medium" placeholder="Search for a Pokémon">
-
-                </form>
             </div>
             <div class="main-content">
                 <!-- Aside Section -->
-                <aside class="main-aside">
+                <aside id='index' class="main-aside">
                     <h2>Pokemon Search Index</h2>
                     <!-- Add content here -->
                 </aside>
@@ -76,10 +70,8 @@
                             <!-- Name/Number -->
                             <h1 id="pokemon-name">Bulbasaur: #0001</h1>
                             <!-- Species -->
-                            <p id="pokemon-species">Seed Pokemon</p>
+                            
                             <!-- Dex Entry - DETAILED INFORMATION API? -->
-
-                            <p id="pokemon-entry"></p>
                             <p id="pokemon-entry">Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger.</p>
 
                         </div>
@@ -157,9 +149,7 @@
             </div>
         </aside>
     </div>
-    <script src="./assets/js/script.js"></script>
-</body>
-</html>
+
     <script src="./assets/js/database.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>

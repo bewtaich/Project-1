@@ -203,10 +203,9 @@ padding: 7px;
 }
 
 .attributes-section {
-    padding: 20px;
+    padding: 15px;
     background-color: #f5f5f5;
     border-radius: 10px;
-    margin: 20px 0;
 }
 
 .attributes-section h2 {
@@ -264,14 +263,17 @@ padding: 7px;
 .stat {
     display: flex;
     justify-content: space-between;
-    width: 40%;
+    width: 50%;
     padding: 5px;
     border-right: 2px solid #f3be19;
+    font-size: .7em;
+    min-height: 100%;
+
 }
 
 .bar {
     min-height: 100%;
-    width: 60%;
+    width: 50%;
     display: flex;
     flex: 0 0 auto;
 }
@@ -376,6 +378,30 @@ padding: 7px;
         order: 1;
         width: 100%;
     }
+    .side-bar {
+        order: 2;
+        width: 100%;
+    }
+    .main-content {
+        flex-direction: column;
+    }
+    .main-aside {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    .navbar-menu .navbar-item {
+        font-size: 0.4em;
+        padding: 2px 5px;
+    }
+    .header-logo {
+        height: 100px;
+    }
+
+    .stat {
+        font-size: small;
+    }
+   
+}
 
     .navbar {
         padding: 5px;
@@ -391,4 +417,7 @@ padding: 7px;
     .navbar-menu {
         box-shadow: none !important;
     }
-}
+    .stat{
+        font-size: .95em;
+    }
+
