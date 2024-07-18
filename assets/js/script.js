@@ -133,14 +133,14 @@ search.addEventListener('submit', renderPKMNInfo)
 // Stat Bars
 
 // CONOR
-// Additional functionality for the search index
+// FUNCTION TO SEARCH INDEX
 const searchIndexContainer = document.getElementById('search-index-container');
 
-// Function to fetch and display Pokémon details
+// FUNTION TO FETCH-DISPLAY POKEMON DETAILS
 const fetchAndDisplayPokemon = function (pokemon) {
     const pokeURL = `https://pokeapi.co/api/v2/pokemon/${pokemon}/`;
 
-    // Display pokemon image based on input
+    // DISPLAY MESSGAGE BASED ON INPUT
     const fetchImage = function () {
         fetch(pokeURL)
             .then(function (response) {
@@ -199,7 +199,7 @@ const fetchAndDisplayPokemon = function (pokemon) {
     fetchStats();
 };
 
-// Function to populate the search index
+// FUNCTION TO POPULATE INDEX
 const populateSearchIndex = function () {
     const pokeURL = 'https://pokeapi.co/api/v2/pokemon?limit=1000';
     fetch(pokeURL)
@@ -216,12 +216,10 @@ const populateSearchIndex = function () {
                 pokeElement.addEventListener('click', () => {
                     fetchAndDisplayPokemon(pokemon.name);
 
-                    // Remove 'clicked' class from all items
                     document.querySelectorAll('.main-aside .pill-navbar-item').forEach(item => {
                         item.classList.remove('clicked');
                     });
 
-                    // Add 'clicked' class to the clicked item
                     pokeElement.classList.add('clicked');
                 });
                 searchIndexContainer.appendChild(pokeElement);

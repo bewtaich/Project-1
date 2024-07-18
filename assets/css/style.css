@@ -1,4 +1,3 @@
-/* General Styles */
 body {
     font-family: 'Krona One', sans-serif;
     margin: 0;
@@ -7,7 +6,7 @@ body {
     flex-direction: column;
 }
 
-/* Header Styles */
+
 .header-background {
     background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0bedb362-1325-47fe-8fb8-8a1224de0221/def1knu-17d5f251-0deb-4b14-8229-29fa3ddfbfd9.png/v1/fill/w_1280,h_427,q_80,strp/pokeball_twitter_header_by_sailortrekkie92_def1knu-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDI3IiwicGF0aCI6IlwvZlwvMGJlZGIzNjItMTMyNS00N2ZlLThmYjgtOGExMjI0ZGUwMjIxXC9kZWYxa251LTE3ZDVmMjUxLTBkZWItNGIxNC04MjI5LTI5ZmEzZGRmYmZkOS5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.BUKSZS-T76iqkw9K5abw8a3u2fPYsVuPMRYzQ8O0ujY');
     background-size: cover;
@@ -21,7 +20,7 @@ body {
 }
 
 .header-logo {
-    height: 112.5px; /* 25% smaller than the original 150px */
+    height: 112.5px;
     margin-left: 20px;
 }
 
@@ -30,7 +29,7 @@ body {
     bottom: 0;
     right: 0;
     padding: 10px;
-    background-color: transparent !important; /* Change to black */
+    background-color: transparent !important;
     box-shadow: none !important;
 }
 
@@ -42,11 +41,11 @@ body {
     background-color: #ed4035 !important;
     color: white !important;
     border-radius: 50px !important;
-    padding: 2px 5px !important; /* Reduced padding */
-    margin: 0 2px !important; /* Reduced margin */
+    padding: 2px 5px !important;
+    margin: 0 2px !important;
     text-transform: uppercase !important;
     font-weight: bold !important;
-    font-size: 0.6em !important; /* Reduced font size */
+    font-size: 0.6em !important;
     transition: background-color 0.3s ease !important;
     border: 2px solid white !important;
     display: flex;
@@ -54,7 +53,7 @@ body {
 }
 
 .header-navbar .pill-navbar-item i {
-    margin-right: 2px; /* Reduced margin */
+    margin-right: 2px;
 }
 
 .header-navbar .pill-navbar-item:hover {
@@ -62,19 +61,19 @@ body {
     color: white !important;
 }
 
-/* Content Wrapper */
+
 .content-wrapper {
     display: flex;
     flex: 1;
     width: 100%;
-    flex-direction: row; /* Default layout for large screens */
+    flex-direction: row;
 }
 
 .side-bar-left,
 .side-bar-right,
 .main-aside {
-    max-height: 130vh; /* Set a maximum height for the asides */
-    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: 130vh;
+    overflow-y: auto;
     width: 250px;
 }
 
@@ -110,13 +109,13 @@ main {
 .search-bar {
     width: 100%;
     display: flex;
-    justify-content: left; /* Centering the search bar */
+    justify-content: left;
     margin-bottom: 20px;
     margin-top: 20px;
 }
 
 .search-input {
-    max-width: 145px; /* Setting max-width for search input */
+    max-width: 145px;
 }
 
 .main-content {
@@ -127,48 +126,48 @@ main {
 .main-aside {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center the contents horizontally */
+    align-items: center;
 }
 
 .main-aside #search-index-container {
     scroll-behavior: auto;
-    width: 100%; /* Ensure full width */
-    overflow-y: auto; /* Enable vertical scrolling */
-    padding: 10px 20px 10px 13px; /* Add some padding */
+    width: 100%;
+    overflow-y: auto;
+    padding: 10px 20px 10px 13px;
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Add some space between items */
-    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
-    align-items: flex-start; /* Align items to the left */
+    gap: 10px;
+    box-sizing: border-box;
+    align-items: flex-start;
 }
 
 .main-aside h2 {
-    text-align: center; /* Center the heading */
-    width: 100%; /* Ensure full width */
+    text-align: justify;
+    width: 100%;
 }
 
 .main-aside .pill-navbar-item {
-    font-size: .55rem !important; /* Set a larger font size */
+    font-size: .55rem !important;
     cursor: pointer;
-    border-radius: 50px; /* Add border radius for pill effect */
-    padding: 10px; /* Add padding to ensure the text fits well */
-    text-align: center; /* Center the text */
-    display: flex; /* Use flexbox for centering */
-    align-items: center; /* Center vertically */
-    justify-content: center; /* Center horizontally */
-    width: 100%; /* Full width */
-    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
-    white-space: nowrap; /* Prevent text from wrapping */
-    overflow: hidden; /* Hide overflow text */
-    text-overflow: ellipsis; /* Add ellipsis (...) for overflow text */
-    background-color: #3b4cca; /* Set background color for default state */
-    color: #ffde00; /* Set text color for default state */
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+    border-radius: 50px;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background-color: #3b4cca;
+    color: #ffde00;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .main-aside .pill-navbar-item.clicked {
-    background-color: #cc0000; /* Set background color for clicked state */
-    color: white; /* Set text color for clicked state */
+    background-color: #cc0000;
+    color: white;
 }
 
 .main-details {
@@ -349,18 +348,19 @@ main {
     min-width: 25px;
 }
 
-/* Bulma customization for input */
+
 .is-medium.input {
     font-size: 0.75rem;
 }
 
-/* Media Queries */
+/* MEDIA QUERIES */
 @media (min-width: 769px) {
     .navbar-end {
         justify-content: flex-end !important;
         flex-direction: column !important;
         margin-left: auto !important;
     }
+
     .navbar-menu {
         box-shadow: none !important;
     }
@@ -371,9 +371,11 @@ main {
         flex-direction: row;
         flex-wrap: wrap;
     }
+
     .navbar-menu {
         box-shadow: none !important;
     }
+
     .side-bar-left,
     .side-bar-right {
         width: 25%;
@@ -404,7 +406,7 @@ main {
     .side-bar-left,
     .side-bar-right {
         display: none;
-        /* Hide the asides on mobile screens */
+
     }
 
     main {
@@ -423,11 +425,12 @@ main {
         margin: 0 1px !important;
         font-size: 0.5em !important;
     }
+
     .navbar-menu {
         box-shadow: none !important;
     }
 
     .main-aside {
-        order: 3; /* Pushes the main-aside to the bottom on smaller screens */
+        order: 3;
     }
 }
