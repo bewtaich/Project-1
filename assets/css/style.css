@@ -1,3 +1,4 @@
+/* General Styles */
 body {
     font-family: 'Krona One', sans-serif;
     margin: 0;
@@ -6,6 +7,7 @@ body {
     flex-direction: column;
 }
 
+/* Header Styles */
 .header-background {
     background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0bedb362-1325-47fe-8fb8-8a1224de0221/def1knu-17d5f251-0deb-4b14-8229-29fa3ddfbfd9.png/v1/fill/w_1280,h_427,q_80,strp/pokeball_twitter_header_by_sailortrekkie92_def1knu-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDI3IiwicGF0aCI6IlwvZlwvMGJlZGIzNjItMTMyNS00N2ZlLThmYjgtOGExMjI0ZGUwMjIxXC9kZWYxa251LTE3ZDVmMjUxLTBkZWItNGIxNC04MjI5LTI5ZmEzZGRmYmZkOS5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.BUKSZS-T76iqkw9K5abw8a3u2fPYsVuPMRYzQ8O0ujY');
     background-size: cover;
@@ -23,20 +25,20 @@ body {
     margin-left: 20px;
 }
 
-.navbar {
+.header-navbar {
     position: absolute;
     bottom: 0;
     right: 0;
     padding: 10px;
-    background: none !important;
+    background-color: transparent !important; /* Change to black */
     box-shadow: none !important;
 }
 
-.navbar-menu {
+.header-navbar .navbar-menu {
     background: none !important;
 }
 
-.pill-navbar-item {
+.header-navbar .pill-navbar-item {
     background-color: #ed4035 !important;
     color: white !important;
     border-radius: 50px !important;
@@ -51,20 +53,29 @@ body {
     align-items: center;
 }
 
-.pill-navbar-item i {
+.header-navbar .pill-navbar-item i {
     margin-right: 2px; /* Reduced margin */
 }
 
-.pill-navbar-item:hover {
+.header-navbar .pill-navbar-item:hover {
     background-color: #d93630 !important;
     color: white !important;
 }
 
+/* Content Wrapper */
 .content-wrapper {
     display: flex;
     flex: 1;
     width: 100%;
     flex-direction: row; /* Default layout for large screens */
+}
+
+.side-bar-left,
+.side-bar-right,
+.main-aside {
+    max-height: 130vh; /* Set a maximum height for the asides */
+    overflow-y: auto; /* Enable vertical scrolling */
+    width: 250px;
 }
 
 .side-bar-left {
@@ -99,26 +110,69 @@ main {
 .search-bar {
     width: 100%;
     display: flex;
-    justify-content: left;
+    justify-content: left; /* Centering the search bar */
     margin-bottom: 20px;
     margin-top: 20px;
+}
+
+.search-input {
+    max-width: 145px; /* Setting max-width for search input */
 }
 
 .main-content {
     display: flex;
     width: 100%;
-    flex-direction: column;
 }
 
 .main-aside {
-    flex: 1;
-    border: 1px solid #ccc;
-    padding: 20px;
-    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the contents horizontally */
+}
+
+.main-aside #search-index-container {
+    scroll-behavior: auto;
+    width: 100%; /* Ensure full width */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 10px 20px 10px 13px; /* Add some padding */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Add some space between items */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+    align-items: flex-start; /* Align items to the left */
+}
+
+.main-aside h2 {
+    text-align: center; /* Center the heading */
+    width: 100%; /* Ensure full width */
+}
+
+.main-aside .pill-navbar-item {
+    font-size: .55rem !important; /* Set a larger font size */
+    cursor: pointer;
+    border-radius: 50px; /* Add border radius for pill effect */
+    padding: 10px; /* Add padding to ensure the text fits well */
+    text-align: center; /* Center the text */
+    display: flex; /* Use flexbox for centering */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    width: 100%; /* Full width */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Add ellipsis (...) for overflow text */
+    background-color: #3b4cca; /* Set background color for default state */
+    color: #ffde00; /* Set text color for default state */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+.main-aside .pill-navbar-item.clicked {
+    background-color: #cc0000; /* Set background color for clicked state */
+    color: white; /* Set text color for clicked state */
 }
 
 .main-details {
-    flex: 3;
+    flex: 1;
     display: flex;
     flex-direction: column;
 }
@@ -159,32 +213,11 @@ main {
 }
 
 .pokemon-info {
+    padding: 10px;
     width: 100%;
     display: flex;
-    flex-direction: rown;
+    flex-direction: column;
     align-items: center;
-    border: 1px solid black;
-    
-}
-
-#pokemon-bio {
-color: black;
-min-height: 100%;
-padding: 7px;
-}
-
-#pokemon-name{
-    font-size: 1.7em;
-    color: black;
-    margin-bottom: 8px;
-}
-
-#pokemon-species{
-    margin-bottom: 15px;
-}
-
-#pokemon-entry{
-    
 }
 
 .dex-photo-container {
@@ -193,12 +226,10 @@ padding: 7px;
     align-items: center;
     width: 100%;
     margin: 20px 0;
-    height:100%;
-    padding:5px;
 }
 
 .dex-photo-container img {
-    max-width: 100%;
+    max-width: 50%;
     height: auto;
 }
 
@@ -318,6 +349,10 @@ padding: 7px;
     min-width: 25px;
 }
 
+/* Bulma customization for input */
+.is-medium.input {
+    font-size: 0.75rem;
+}
 
 /* Media Queries */
 @media (min-width: 769px) {
@@ -355,7 +390,7 @@ padding: 7px;
     }
 
     .pill-navbar-item {
-        padding: 2px 5px !important;
+        padding: 13px 5px !important;
         margin: 0 2px !important;
         font-size: 0.6em !important;
     }
@@ -384,11 +419,15 @@ padding: 7px;
     }
 
     .pill-navbar-item {
-        padding: 1px 3px !important;
+        padding: 13px 5px !important;
         margin: 0 1px !important;
         font-size: 0.5em !important;
     }
     .navbar-menu {
         box-shadow: none !important;
+    }
+
+    .main-aside {
+        order: 3; /* Pushes the main-aside to the bottom on smaller screens */
     }
 }
