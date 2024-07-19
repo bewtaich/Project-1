@@ -12,7 +12,9 @@ return response.json();
     const pokeObj=data;
 
     for (let i=0;i<1025;i++){
-       database.push(pokeObj.results[i].name) 
+        const input = pokeObj.results[i].name;
+       database.push(input.charAt(0).toUpperCase() + input.slice(1)) 
+       
     }
 })
 
@@ -20,7 +22,9 @@ function autocompleteMatch(input) {
   if (input == '') {
     return [];
   }
-  var reg = new RegExp(input)
+
+  var reg = new RegExp(input, 'i')
+
   return database.filter(function(term) {
 	  if (term.match(reg)) {
   	  return term;
@@ -38,4 +42,4 @@ function showResults(val) {
   }
   res.innerHTML = '<ul>' + list + '</ul>';
 }
-console.log(database);
+
