@@ -538,7 +538,33 @@ body {
 }
 
 /* MEDIA QUERIES */
-@media (min-width: 769px) {
+@media (min-width: 1801px) {
+    .party-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .party-slot {
+        height: 150px;
+    }
+
+    .party-slot img {
+        max-width: 80%;
+    }
+
+    .party-slot .attack-value {
+        font-size: 1rem;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .main-aside .box {
+        font-size: .5rem !important;
+        padding: 0.65rem !important;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1800px) {
     .navbar-end {
         justify-content: flex-end !important;
         flex-direction: column !important;
@@ -547,6 +573,30 @@ body {
 
     .navbar-menu {
         box-shadow: none !important;
+    }
+
+    .party-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    .party-slot {
+        height: 100px;
+    }
+
+    .party-slot img {
+        max-width: 70%;
+    }
+
+    .party-slot .attack-value {
+        font-size: 0.75rem;
+        margin-top: 5px;
+        text-align: center;
+    }
+
+    .main-aside .box {
+        font-size: 0.5rem !important;
+        padding: 0.6rem !important;
     }
 }
 
@@ -579,6 +629,46 @@ body {
         padding: 13px 5px !important;
         margin: 0 2px !important;
         font-size: 0.6em !important;
+    }
+
+    .party-of-6 {
+        padding: 10px;
+    }
+
+    .party-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+
+    .party-slot {
+        height: 90px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .party-slot img {
+        max-width: 60%;
+    }
+
+    .party-slot .attack-value {
+        font-size: 0.7rem;
+        margin-top: 3px;
+        text-align: center;
+    }
+
+    .favorites-list {
+        padding: 10px;
+    }
+
+    .favorite-item {
+        padding: 0.5rem;
+    }
+
+    .main-aside .box {
+        font-size: 0.5rem !important;
+        padding: 0.5rem !important;
     }
 }
 
@@ -615,6 +705,46 @@ body {
 
     .main-aside {
         order: 3;
+    }
+
+    .party-of-6 {
+        padding: 10px;
+    }
+
+    .party-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+    }
+
+    .party-slot {
+        height: 80px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .party-slot img {
+        max-width: 50%;
+    }
+
+    .party-slot .attack-value {
+        font-size: 0.6rem;
+        margin-top: 2px;
+        text-align: center;
+    }
+
+    .favorites-list {
+        padding: 10px;
+    }
+
+    .favorite-item {
+        padding: 0.5rem;
+    }
+
+    .main-aside .box {
+        font-size: 0.5rem !important;
+        padding: 0.4rem !important;
     }
 }
 
