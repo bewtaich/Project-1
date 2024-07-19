@@ -222,8 +222,8 @@ function drop(event) {
             const img = data.sprites.other.home.front_default;
             const imgElement = document.createElement('img');
             imgElement.src = img;
-            event.target.innerHTML = '';
-            event.target.appendChild(imgElement);
+            event.target.innerHTML = ''; // Clear any existing content
+            event.target.appendChild(imgElement); // Add the new image
         });
 }
 
@@ -231,7 +231,7 @@ function drop(event) {
 const clearPartyButton = document.getElementById('clear-party');
 clearPartyButton.addEventListener('click', () => {
     document.querySelectorAll('.party-slot').forEach(slot => {
-        slot.innerHTML = '';
+        slot.innerHTML = ''; // Clear all party slots
     });
 });
 

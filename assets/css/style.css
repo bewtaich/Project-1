@@ -150,29 +150,17 @@ body {
 }
 
 .main-aside .box {
-    font-size: .75rem !important;
+    font-size: 0.60rem !important;
     cursor: pointer;
-    border-radius: 5px;
-    padding: 0.50rem !important;
-    border-radius: 5px;
-    margin-bottom: 0.5rem;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    box-sizing: border-box;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    padding: 0.5rem !important;
+    border-radius: 2.5px !important;
     background-color: #3b4cca;
     color: #ffde00;
+    margin-bottom: 0.25rem !important;
     transition: background-color 0.3s, color 0.3s;
-}
-
-.main-aside .box:hover {
-    background-color: #ffde00; /* Example hover background color, adjust as needed */
-    color: #3b4cca; /* Example hover text color, adjust as needed */
+    width: 95%;
+    box-sizing: border-box;
+    text-align: center !important;
 }
 
 .main-aside .box.clicked {
@@ -182,6 +170,11 @@ body {
 
 .main-aside .box:active {
     cursor: grabbing;
+}
+
+.main-aside .box:hover {
+    background-color: #ffde00; /* Example hover background color, adjust as needed */
+    color: #3b4cca; /* Example hover text color, adjust as needed */
 }
 
 .main-details {
