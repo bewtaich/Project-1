@@ -646,3 +646,12 @@ h1 {
     scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
     scrollbar-width: thin;
 }
+
+.pokemon-species {
+
+}
+
+#type1, #type2 {
+    max-width: 35%;
+    margin-bottom: 10px;
+}
