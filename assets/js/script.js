@@ -10,6 +10,8 @@ const speedText = document.getElementById('speedText');
 const Index = document.getElementById('index');
 const entry = document.getElementById('pokemon-entry');
 const pkmnName = document.getElementById('pokemon-name');
+const type1 = document.getElementById('type1');
+const type2 = document.getElementById('type2');
 
 // Changes all pokemon information
 const renderPKMNInfo = function (event) {
@@ -28,6 +30,18 @@ const renderPKMNInfo = function (event) {
                 const pokeObjIMG = data;
                 const img = pokeObjIMG.sprites.other.home.front_default;
                 dexPhoto.setAttribute('src', img);
+
+                if (pokeObjIMG.types.length > 1) {
+                    const type1Img = pokeObjIMG.types[0].type.name;
+                    const type2Img = pokeObjIMG.types[1].type.name;
+                    type1.setAttribute('src', `./assets/images/types/${type1Img}.png`)
+                    type2.setAttribute('src', `./assets/images/types/${type2Img}.png` )
+                    } else {
+                        const type1Img = pokeObjIMG.types[0].type.name;
+                        console.log(type1Img);
+                        type1.setAttribute('src', `./assets/images/types/${type1Img}.png`)
+                        type2.setAttribute('src', "")
+                    }
             });
     };
 
@@ -299,6 +313,19 @@ const fetchAndDisplayMainPokemon = function (pokemon) {
         .then(function (data) {
             const img = data.sprites.other.home.front_default;
             dexPhoto.setAttribute('src', img);
+
+            if (data.types.length > 1) {
+                const type1Img = data.types[0].type.name;
+                const type2Img = data.types[1].type.name;
+                type1.setAttribute('src', `./assets/images/types/${type1Img}.png`)
+                type2.setAttribute('src', `./assets/images/types/${type2Img}.png` )
+                } else {
+                    const type1Img = data.types[0].type.name;
+                    console.log(type1Img);
+                    type1.setAttribute('src', `./assets/images/types/${type1Img}.png`)
+                    type2.setAttribute('src', "")
+                }
+            
 
             const pokeObjStat = data.stats;
             const empty = [];
