@@ -183,7 +183,7 @@ const populateSearchIndex = function () {
                 const zerofilled = ('0000' + (index + 1)).slice(-4);
                 const capitalizedPokemonName = `${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}`;
                 pokeElement.innerHTML = `${capitalizedPokemonName}: #${zerofilled}`;
-                pokeElement.classList.add('box'); // Ensure 'box' class is applied
+                pokeElement.classList.add('box');
                 pokeElement.draggable = true;
                 pokeElement.addEventListener('dragstart', (event) => {
                     event.dataTransfer.setData('text', pokemon.name);
@@ -218,10 +218,59 @@ function drop(event) {
         .then(response => response.json())
         .then(data => {
             const img = data.sprites.other.home.front_default;
+            const attack = data.stats.find(stat => stat.stat.name === 'attack').base_stat;
+
             const imgElement = document.createElement('img');
             imgElement.src = img;
-            event.target.innerHTML = ''; // Clear any existing content
-            event.target.appendChild(imgElement); // Add the new image
+
+            const attackElement = document.createElement('div');
+            attackElement.classList.add('attack-value');
+            attackElement.textContent = `Attack: ${attack}`;
+
+            event.target.innerHTML = '';
+
+            event.target.appendChild(imgElement);
+            event.target.appendChild(attackElement);
+        });
+}
+
+// FUNCTION TO DROP IN FAVORITES LIST
+function dropFavorite(event) {
+    event.preventDefault();
+    const data = event.dataTransfer.getData('text');
+    const pokeURL = `https://pokeapi.co/api/v2/pokemon/${data}/`;
+
+    fetch(pokeURL)
+        .then(response => response.json())
+        .then(data => {
+            const img = data.sprites.other.home.front_default;
+            const name = data.name;
+            const hp = data.stats.find(stat => stat.stat.name === 'hp').base_stat;
+
+            const favoriteItem = document.createElement('div');
+            favoriteItem.classList.add('favorite-item');
+            favoriteItem.draggable = true;
+
+            favoriteItem.innerHTML = `
+                <img src="${img}" alt="${name}">
+                <p>${name.charAt(0).toUpperCase() + name.slice(1)}: HP ${hp}</p>
+            `;
+
+            favoriteItem.addEventListener('dragstart', (event) => {
+                event.dataTransfer.setData('text', name);
+            });
+
+            favoriteItem.addEventListener('click', () => {
+                fetchAndDisplayMainPokemon(name);
+
+                document.querySelectorAll('.favorites-list .favorite-item').forEach(item => {
+                    item.classList.remove('clicked');
+                });
+
+                favoriteItem.classList.add('clicked');
+            });
+
+            document.getElementById('favorites-container').appendChild(favoriteItem);
         });
 }
 
@@ -229,8 +278,14 @@ function drop(event) {
 const clearPartyButton = document.getElementById('clear-party');
 clearPartyButton.addEventListener('click', () => {
     document.querySelectorAll('.party-slot').forEach(slot => {
-        slot.innerHTML = ''; // Clear all party slots
+        slot.innerHTML = '';
     });
+});
+
+// FUNCTION TO CLEAR FAVORITES
+document.getElementById('clear-favorites').addEventListener('click', () => {
+    const favoritesContainer = document.getElementById('favorites-container');
+    favoritesContainer.innerHTML = '';
 });
 
 // FUNCTION TO GET POKEMON DETAILS IN THE MAIN SECTION (POKEMON ENTRY)
