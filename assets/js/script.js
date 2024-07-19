@@ -131,3 +131,197 @@ search.addEventListener('submit', renderPKMNInfo)
 
 
 // Stat Bars
+
+// CONOR
+
+// FUNCTION TO CLOSE ALERT
+document.getElementById('close-alert').addEventListener('click', () => {
+    document.getElementById('party-subheading').style.display = 'none';
+});
+
+// FUNCTION TO SEARCH INDEX
+const searchIndexContainer = document.getElementById('search-index-container');
+
+// FUNTION TO FETCH-DISPLAY POKEMON DETAILS
+const fetchAndDisplayPokemon = function (pokemon) {
+    const pokeURL = `https://pokeapi.co/api/v2/pokemon/${pokemon}/`;
+
+    // DISPLAY MESSGAGE BASED ON INPUT
+    const fetchImage = function () {
+        fetch(pokeURL)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                const pokeObjIMG = data;
+                console.log(pokeObjIMG);
+                const img = pokeObjIMG.sprites.other.home.front_default;
+                console.log(img);
+                dexPhoto.setAttribute('src', img);
+            });
+    };
+
+    const fetchStats = function () {
+        const empty = [];
+
+        fetch(pokeURL)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                const pokeObjStat = data.stats;
+                console.log(pokeObjStat);
+
+                for (let i = 0; i < pokeObjStat.length; i++) {
+                    const stats = pokeObjStat[i].base_stat;
+                    empty.push(stats);
+                }
+
+                console.log(empty);
+                hpText.textContent = empty[0];
+                atkText.textContent = empty[1];
+                defText.textContent = empty[2];
+                spatkText.textContent = empty[3];
+                spdefText.textContent = empty[4];
+                speedText.textContent = empty[5];
+
+                const hpbar = document.getElementById('hpbar');
+                const atkbar = document.getElementById('atkbar');
+                const defbar = document.getElementById('defbar');
+                const spatkbar = document.getElementById('spatkbar');
+                const spdefbar = document.getElementById('spdefbar');
+                const speedbar = document.getElementById('speedbar');
+
+                hpbar.style.width = `${((empty[0] / 255) * 100)}%`;
+                atkbar.style.width = `${((empty[1] / 255) * 100)}%`;
+                defbar.style.width = `${((empty[2] / 255) * 100)}%`;
+                spatkbar.style.width = `${((empty[3] / 255) * 100)}%`;
+                spdefbar.style.width = `${((empty[4] / 255) * 100)}%`;
+                speedbar.style.width = `${((empty[5] / 255) * 100)}%`;
+            });
+    };
+
+    fetchImage();
+    fetchStats();
+};
+
+// FUNCTION TO POPULATE INDEX
+const populateSearchIndex = function () {
+    const pokeURL = 'https://pokeapi.co/api/v2/pokemon?limit=1000';
+    fetch(pokeURL)
+        .then(response => response.json())
+        .then(data => {
+            const pokeList = data.results;
+
+            pokeList.forEach(pokemon => {
+                const pokeElement = document.createElement('div');
+                pokeElement.textContent = pokemon.name;
+                pokeElement.classList.add('pill-navbar-item');
+                pokeElement.style.fontSize = '1rem';
+                pokeElement.style.cursor = 'pointer';
+                pokeElement.draggable = true;
+                pokeElement.addEventListener('dragstart', (event) => {
+                    event.dataTransfer.setData('text', pokemon.name);
+                });
+                pokeElement.addEventListener('click', () => {
+                    fetchAndDisplayMainPokemon(pokemon.name);
+
+                    document.querySelectorAll('.main-aside .pill-navbar-item').forEach(item => {
+                        item.classList.remove('clicked');
+                    });
+
+                    pokeElement.classList.add('clicked');
+                });
+                searchIndexContainer.appendChild(pokeElement);
+            });
+        });
+};
+
+populateSearchIndex();
+
+// FUNCTION TO DRAG AND DROP
+
+function allowDrop(event) {
+    event.preventDefault();
+}
+
+function drop(event) {
+    event.preventDefault();
+    const data = event.dataTransfer.getData('text');
+    const pokeURL = `https://pokeapi.co/api/v2/pokemon/${data}/`;
+
+    fetch(pokeURL)
+        .then(response => response.json())
+        .then(data => {
+            const img = data.sprites.other.home.front_default;
+            const imgElement = document.createElement('img');
+            imgElement.src = img;
+            event.target.innerHTML = ''; // Clear any existing content
+            event.target.appendChild(imgElement); // Add the new image
+        });
+}
+
+// FUNCTION TO CLEAR PARTY
+const clearPartyButton = document.getElementById('clear-party');
+clearPartyButton.addEventListener('click', () => {
+    document.querySelectorAll('.party-slot').forEach(slot => {
+        slot.innerHTML = ''; // Clear all party slots
+    });
+});
+
+// FUNCTION TO GET POKEMON DETAILS IN THE MAIN SECTION (POKEMON ENTRY)
+const fetchAndDisplayMainPokemon = function (pokemon) {
+    const pokeURL = `https://pokeapi.co/api/v2/pokemon/${pokemon}/`;
+
+    fetch(pokeURL)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            const img = data.sprites.other.home.front_default;
+            dexPhoto.setAttribute('src', img);
+
+            const pokeObjStat = data.stats;
+            const empty = [];
+
+            for (let i = 0; i < pokeObjStat.length; i++) {
+                const stats = pokeObjStat[i].base_stat;
+                empty.push(stats);
+            }
+
+            hpText.textContent = empty[0];
+            atkText.textContent = empty[1];
+            defText.textContent = empty[2];
+            spatkText.textContent = empty[3];
+            spdefText.textContent = empty[4];
+            speedText.textContent = empty[5];
+
+            const hpbar = document.getElementById('hpbar');
+            const atkbar = document.getElementById('atkbar');
+            const defbar = document.getElementById('defbar');
+            const spatkbar = document.getElementById('spatkbar');
+            const spdefbar = document.getElementById('spdefbar');
+            const speedbar = document.getElementById('speedbar');
+
+            hpbar.style.width = `${((empty[0] / 255) * 100)}%`;
+            atkbar.style.width = `${((empty[1] / 255) * 100)}%`;
+            defbar.style.width = `${((empty[2] / 255) * 100)}%`;
+            spatkbar.style.width = `${((empty[3] / 255) * 100)}%`;
+            spdefbar.style.width = `${((empty[4] / 255) * 100)}%`;
+            speedbar.style.width = `${((empty[5] / 255) * 100)}%`;
+
+            const bioURL = `https://pokeapi.co/api/v2/pokemon-species/${pokemon}/`;
+            return fetch(bioURL);
+        })
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            const pokeObjBio = data;
+            const enText = (pokeObjBio.flavor_text_entries.findIndex(obj => obj.language.name === 'en'));
+            entry.innerHTML = `${pokeObjBio.flavor_text_entries[enText].flavor_text.replace('\f', " ")}`;
+
+            const zerofilled = ('0000' + pokeObjBio.id).slice(-4);
+            pkmnName.innerHTML = `${pokemon.charAt(0).toUpperCase() + pokemon.slice(1)}: #${zerofilled}`;
+        });
+};
