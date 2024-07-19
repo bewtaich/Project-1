@@ -10,9 +10,8 @@
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
-    <title>BREAKOUT Room 3 Pokedex</title>
-    <style>
-    </style>
+    <title>Pokedex</title>
+
 </head>
 
 <body class="has-background-dark">
@@ -39,6 +38,89 @@
         </nav>
     </header>
     <div class="content-wrapper has-background-grey-dark">
+        <!-- Main Pokedex Content -->
+        <main class="main-content-container">
+            <!-- Aside Section -->
+            <aside class="column is-3 main-aside has-background-grey-darker">
+                <!-- Search Bar -->
+                <div class="search-bar">
+                    <form autocomplete="off">
+                        <input type="text" name="search" id="search" onKeyUp="showResults(this.value)"
+                            class="input is-medium search-input" placeholder="Search for a Pokémon" />
+                        <div id="result"></div>
+                    </form>
+                </div>
+                <h2><i class="fas fa-globe"></i> Index:</h2>
+
+                <!-- Add content here -->
+                <div id="search-index-container" class="main-aside-navbar"></div>
+            </aside>
+            <div class="main-content has-background-grey-darker">
+                <!-- MAIN POKEMON INFO -->
+                <div class="pokemon-info">
+                    <div>
+                        <!-- Name/Number -->
+                        <h1 id="pokemon-name"></h1>
+                        <!-- Species -->
+                        <p id="pokemon-species"></p>
+                        <!-- Dex Entry - DETAILED INFORMATION API? -->
+                        <p id="pokemon-entry"></p>
+                    </div>
+                    <!-- Picture of Mon -->
+                    <div class="dex-photo-container">
+                        <img id='dexPhoto' src="./assets/images/images-removebg-preview.png" alt="Pokemon image">
+                    </div>
+                </div>
+                <!-- ATTRIBUTES AND EVOLUTION TIMELINE SECTION -->
+                <section class="section">
+                    <div class="container">
+                        <div class="attributes-section" id="pokemon-attributes">
+                            <h2>Pokemon Attributes</h2>
+                            <div class="attribute" id="hp">
+                                <p class="stat">HP: <span id="hpText">--</span></p>
+                                <div class="bar">
+                                    <div id="hpbar"></div>
+                                </div>
+                            </div>
+                            <div class="attribute" id="attack">
+                                <p class="stat">Attack: <span id="atkText">--</span></p>
+                                <div class="bar">
+                                    <div id="atkbar"></div>
+                                </div>
+                            </div>
+                            <div class="attribute" id="defense">
+                                <p class="stat">Defense: <span id="defText">--</span></p>
+                                <div class="bar">
+                                    <div id="defbar"></div>
+                                </div>
+                            </div>
+                            <div class="attribute" id="special-attack">
+                                <p class="stat">Sp. Atk:<span id="spatkText">--</span></p>
+                                <div class="bar">
+                                    <div id="spatkbar"></div>
+                                </div>
+                            </div>
+                            <div class="attribute" id="special-defense">
+                                <p class="stat">Sp. Def: <span id="spdefText">--</span></p>
+                                <div class="bar">
+                                    <div id="spdefbar"></div>
+                                </div>
+                            </div>
+                            <div class="attribute" id="speed">
+                                <p class="stat">Speed: <span id="speedText">--</span></p>
+                                <div class="bar">
+                                    <div id="speedbar"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="evolution-timeline" id="evolution-timeline">
+                            <h2>Evolution Timeline</h2>
+                            <p>--</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
         <!-- Left Side Bar -->
         <aside class="side-bar-left has-background-grey-darker">
             <div class="left-container">
@@ -68,90 +150,6 @@
                 </div>
             </div>
         </aside>
-        <!-- Main Pokedex Content -->
-        <main>
-            <div class="main-content has-background-grey-darker">
-                <!-- Aside Section -->
-                <aside class="column is-3 main-aside has-background-grey-darker">
-                    <!-- Search Bar -->
-                    <div class="search-bar">
-                        <form autocomplete="off">
-                            <input type="text" name="search" id="search" onKeyUp="showResults(this.value)"
-                                class="input is-medium search-input" placeholder="Search for a Pokémon" />
-                            <div id="result"></div>
-                        </form>
-                    </div>
-                    <h2><i class="fas fa-globe"></i> Index:</h2>
-                    <!-- Add content here -->
-                    <div id="search-index-container" class="main-aside-navbar"></div>
-                </aside>
-                <div class="main-details has-background-grey-darker">
-                    <!-- MAIN POKEMON INFO -->
-                    <div class="pokemon-info">
-                        <div>
-                            <!-- Name/Number -->
-                            <h1 id="pokemon-name"></h1>
-                            <!-- Species -->
-                            <p id="pokemon-species"></p>
-                            <!-- Dex Entry - DETAILED INFORMATION API? -->
-                            <p id="pokemon-entry"></p>
-                        </div>
-                        <!-- Picture of Mon -->
-                        <div class="dex-photo-container">
-                            <img id='dexPhoto' src="./assets/images/images-removebg-preview.png" alt="Pokemon image">
-                        </div>
-                    </div>
-                    <!-- ATTRIBUTES AND EVOLUTION TIMELINE SECTION -->
-                    <section class="section">
-                        <div class="container">
-                            <div class="attributes-section" id="pokemon-attributes">
-                                <h2>Pokemon Attributes</h2>
-                                <div class="attribute" id="hp">
-                                    <p class="stat">HP: <span id="hpText">--</span></p>
-                                    <div class="bar">
-                                        <div id="hpbar"></div>
-                                    </div>
-                                </div>
-                                <div class="attribute" id="attack">
-                                    <p class="stat">Attack: <span id="atkText">--</span></p>
-                                    <div class="bar">
-                                        <div id="atkbar"></div>
-                                    </div>
-                                </div>
-                                <div class="attribute" id="defense">
-                                    <p class="stat">Defense: <span id="defText">--</span></p>
-                                    <div class="bar">
-                                        <div id="defbar"></div>
-                                    </div>
-                                </div>
-                                <div class="attribute" id="special-attack">
-                                    <p class="stat">Sp. Atk:<span id="spatkText">--</span></p>
-                                    <div class="bar">
-                                        <div id="spatkbar"></div>
-                                    </div>
-                                </div>
-                                <div class="attribute" id="special-defense">
-                                    <p class="stat">Sp. Def: <span id="spdefText">--</span></p>
-                                    <div class="bar">
-                                        <div id="spdefbar"></div>
-                                    </div>
-                                </div>
-                                <div class="attribute" id="speed">
-                                    <p class="stat">Speed: <span id="speedText">--</span></p>
-                                    <div class="bar">
-                                        <div id="speedbar"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="evolution-timeline" id="evolution-timeline">
-                                <h2>Evolution Timeline</h2>
-                                <p>--</p>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-            </div>
-        </main>
         <!-- Right Side Bar -->
         <aside class="side-bar-right has-background-grey-darker">
             <div class="right-container">
