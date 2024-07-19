@@ -12,20 +12,36 @@
     <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
     <title>BREAKOUT Room 3 Pokedex</title>
     <style>
-        .main-details,
-        .section {
-            padding-top: 10px !important;
+        /* Custom scrollbar for main-aside */
+        .main-aside::-webkit-scrollbar {
+            width: 12px;
         }
 
-        .pokemon-info {
-            margin-bottom: 0 !important;
+        .main-aside::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .main-aside::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            border: 3px solid transparent;
+            background-clip: padding-box;
+        }
+
+        .main-aside::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .main-aside {
+            scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
+            scrollbar-width: thin;
         }
     </style>
 </head>
 
-<body>
+<body class="has-background-dark">
     <!-- Header with Pokemon background image and nav bar w/ links to popular pokemon sites -->
-    <header class="header-background">
+    <header class="header-background has-background-grey-darker">
         <img src="./assets/images/Pokédex_logo.png" alt="Pokedex Logo" class="header-logo">
         <nav class="header-navbar">
             <div class="container">
@@ -46,14 +62,28 @@
             </div>
         </nav>
     </header>
-    <div class="content-wrapper">
+    <div class="content-wrapper has-background-grey-dark">
         <!-- Left Side Bar -->
-        <aside class="side-bar-left">
+        <aside class="side-bar-left has-background-grey-darker">
             <div class="left-container">
                 <!-- Party of 6 -->
                 <div class="party-of-6">
-                    <h2>Party of 6</h2>
-                    <!-- THIS IS WHERE THE LINE UP WILL GO, DOE THIS NEED ADDITIONAL CONTAINERS? -->
+                    <h2 class="party-heading">Party of 6</h2>
+                    <div id="party-subheading" class="party-subheading pill">
+                        Use the index to drag Pokémon into your line-up!
+                        <button id="close-alert" class="delete is-small"></button>
+                    </div>
+                    <div class="party-grid">
+                        <div class="party-slot" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="party-slot" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="party-slot" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="party-slot" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="party-slot" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                        <div class="party-slot" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                    </div>
+                    <div class="clear-button-container">
+                        <button id="clear-party" class="button is-danger clear-party-button">Clear Party</button>
+                    </div>
                 </div>
                 <!-- Favorites List -->
                 <div class="favorites-list">
@@ -64,9 +94,9 @@
         </aside>
         <!-- Main Pokedex Content -->
         <main>
-            <div class="main-content">
+            <div class="main-content has-background-grey-darker">
                 <!-- Aside Section -->
-                <aside class="column is-3 main-aside">
+                <aside class="column is-3 main-aside has-background-grey-darker">
                     <!-- Search Bar -->
                     <div class="search-bar">
                         <form autocomplete="off">
@@ -75,11 +105,11 @@
                             <div id="result"></div>
                         </form>
                     </div>
-                    <h2>Index</h2>
+                    <h2><i class="fas fa-globe"></i> Index:</h2>
                     <!-- Add content here -->
                     <div id="search-index-container" class="main-aside-navbar"></div>
                 </aside>
-                <div class="main-details">
+                <div class="main-details has-background-grey-darker">
                     <!-- MAIN POKEMON INFO -->
                     <div class="pokemon-info">
                         <div>
@@ -89,8 +119,6 @@
                             <p id="pokemon-species"></p>
                             <!-- Dex Entry - DETAILED INFORMATION API? -->
                             <p id="pokemon-entry"></p>
-                            <p id="pokemon-entry">Bulbasaur can be seen napping in bright sunlight. There is a seed on
-                                its back. By soaking up the sun's rays, the seed grows progressively larger.</p>
                         </div>
                         <!-- Picture of Mon -->
                         <div class="dex-photo-container">
@@ -149,7 +177,7 @@
             </div>
         </main>
         <!-- Right Side Bar -->
-        <aside class="side-bar-right">
+        <aside class="side-bar-right has-background-grey-darker">
             <div class="right-container">
                 <!-- PokeTrivia API area -->
                 <div class="poke-trivia">
