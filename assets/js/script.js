@@ -183,9 +183,7 @@ const populateSearchIndex = function () {
                 const zerofilled = ('0000' + (index + 1)).slice(-4);
                 const capitalizedPokemonName = `${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}`;
                 pokeElement.innerHTML = `${capitalizedPokemonName}: #${zerofilled}`;
-                pokeElement.classList.add('box');
-                pokeElement.style.fontSize = '1rem';
-                pokeElement.style.cursor = 'pointer';
+                pokeElement.classList.add('box'); // Ensure 'box' class is applied
                 pokeElement.draggable = true;
                 pokeElement.addEventListener('dragstart', (event) => {
                     event.dataTransfer.setData('text', pokemon.name);
