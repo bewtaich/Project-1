@@ -144,9 +144,9 @@
                     </div>
                 </div>
                 <!-- Favorites List -->
-                <div class="favorites-list">
-                    <h2>Favorites List</h2>
-                    <!-- Add POKEDEX INDEX API HERE? CONTAINER? -->
+                <div class="favorites-list" ondrop="dropFavorite(event)" ondragover="allowDrop(event)">
+                    <h2>Favorites List <button id="clear-favorites" class="button is-small">Clear</button> </h2>
+                    <div id="favorites-container"></div>
                 </div>
             </div>
         </aside>
