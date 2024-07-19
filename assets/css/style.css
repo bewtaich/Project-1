@@ -6,6 +6,11 @@ body {
     flex-direction: column;
 }
 
+h1 {
+    font-size: 1.8em;
+    padding-bottom: 10px;
+}
+
 .header-background {
     background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0bedb362-1325-47fe-8fb8-8a1224de0221/def1knu-17d5f251-0deb-4b14-8229-29fa3ddfbfd9.png/v1/fill/w_1280,h_427,q_80,strp/pokeball_twitter_header_by_sailortrekkie92_def1knu-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDI3IiwicGF0aCI6IlwvZlwvMGJlZGIzNjItMTMyNS00N2ZlLThmYjgtOGExMjI0ZGUwMjIxXC9kZWYxa251LTE3ZDVmMjUxLTBkZWItNGIxNC04MjI5LTI5ZmEzZGRmYmZkOS5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.BUKSZS-T76iqkw9K5abw8a3u2fPYsVuPMRYzQ8O0ujY');
     background-size: cover;

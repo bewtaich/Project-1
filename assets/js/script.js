@@ -28,6 +28,8 @@ const renderPKMNInfo = function (event) {
                 const pokeObjIMG = data;
                 const img = pokeObjIMG.sprites.other.home.front_default;
                 dexPhoto.setAttribute('src', img);
+
+                const type1Img = pokeObjIMG
             });
     };
 
