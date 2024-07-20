@@ -828,6 +828,7 @@ h1 {
 .main-aside {
     scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
     scrollbar-width: thin;
+<<<<<<< HEAD
 }
 
 #type1, #type2 {
@@ -841,3 +842,13 @@ h1 {
     text-align: center;
     margin-bottom: 1px !important;
 }
+=======
+
+}
+
+#type1, #type2 {
+    max-width: 35%;
+    margin-bottom: 10px;
+}
+
+>>>>>>> 8ae9abfc603eb2617fdf81cafd36e196a47bb4d3
