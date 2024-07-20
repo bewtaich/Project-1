@@ -274,13 +274,13 @@ h1 {
 
 .clear-party-button {
     left: 5px;
-    font-size: 1rem;
+    font-size: .65rem;
     padding: 5px 10px;
     width: auto;
     height: auto;
     bottom: 5px;
-    background-color: #3b4cca !important;
-    color: #ffde00 !important;
+    background-color: transparent !important;
+    color: #cc0000 !important;
 }
 
 .favorites-list {
@@ -391,10 +391,60 @@ h1 {
 .poke-trivia {
     flex: 1;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
     background-color: #d3d3d3;
     width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.poke-trivia h2 {
+    margin: 0;
+    padding: 10px;
+    color: black;
+    text-align: center;
+}
+
+.poke-trivia button {
+    margin: 10px 0;
+    background-color: #3b4cca;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.poke-trivia button:hover {
+    background-color: #2a3a9a;
+}
+
+.pokemon-gif-container {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(https://i.pinimg.com/originals/98/c1/5a/98c15a449a1166ec23f5c9f1f63995dd.png);
+    background-size: contain;
+    margin: 20px 0;
+}
+
+.pokemon-gif-container img {
+    width: 50%;
+    height: auto;
+}
+
+#pokemon-name-display {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: black;
+    text-align: center;
 }
 
 .pokemon-info {
@@ -605,7 +655,7 @@ h1 {
     }
 }
 
-@media (max-width: 1024px) {
+@media (min-width: 1024px) {
     .content-wrapper {
         flex-direction: row;
         flex-wrap: wrap;
@@ -674,6 +724,9 @@ h1 {
     .main-aside .box {
         font-size: 0.5rem !important;
         padding: 0.5rem !important;
+    }
+    .section {
+        padding:0rem 3rem;
     }
 }
 
@@ -775,11 +828,16 @@ h1 {
 .main-aside {
     scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
     scrollbar-width: thin;
-
 }
 
 #type1, #type2 {
-    max-width: 35%;
-    margin-bottom: 10px;
+    width: 100px;
+    height: 50px;
+    object-fit: contain;
+    margin: 0 5px;
 }
 
+.pokemon-info > *:not(#pokemon-entry) {
+    text-align: center;
+    margin-bottom: 1px !important;
+}
