@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
     <title>Pokedex</title>
-
 </head>
 
 <body class="has-background-dark">
@@ -51,21 +50,23 @@
                     </form>
                 </div>
                 <h2><i class="fas fa-globe"></i> Index:</h2>
-
                 <!-- Add content here -->
                 <div id="search-index-container" class="main-aside-navbar"></div>
             </aside>
             <div class="main-content has-background-grey-darker">
                 <!-- MAIN POKEMON INFO -->
                 <div class="pokemon-info">
-                    <div>
-                        <!-- Name/Number -->
-                        <h1 id="pokemon-name"></h1>
-                        <!-- Species -->
-                        <p id="pokemon-species"></p>
-                        <!-- Dex Entry - DETAILED INFORMATION API? -->
-                        <p id="pokemon-entry"></p>
+                    <!-- Name/Number -->
+                    <h1 id="pokemon-name"></h1>
+                    <!-- Pokemon Types -->
+                    <div id="types">
+                        <img id="type1" src="">
+                        <img id="type2" src="">
                     </div>
+                    <!-- Species -->
+                    <p id="pokemon-species"></p>
+                    <!-- Dex Entry - DETAILED INFORMATION API? -->
+                    <p id="pokemon-entry"></p>
                     <!-- Picture of Mon -->
                     <div class="dex-photo-container">
                         <img id='dexPhoto' src="./assets/images/images-removebg-preview.png" alt="Pokemon image">
@@ -155,8 +156,15 @@
             <div class="right-container">
                 <!-- PokeTrivia API area -->
                 <div class="poke-trivia">
-                    <h2>PokeTrivia API area</h2>
-                    <!-- API CONNECT HERE - DOES THIS NEED ADDITIONAL CONTAINERS? -->
+                    <h2>Who's that Pokemon?</h2>
+                    <button id="random-pokemon-btn" class="small-button">Get Random Pokémon</button>
+                    <div class="pokemon-gif-container">
+                        <img id="random-pokemon-img" class="pokemon-gif" src="" alt="Random Pokémon" onerror="this.onerror=null; this.src='./assets/images/default.png';">
+                        <img id="hidden-random-pokemon-img" style="display: none;" onerror="handleBrokenImage();" onload="displayRandomPokemon();">
+                    </div>
+                    <p id="random-pokemon-name"></p>
+                    <p id="random-pokemon-species"></p>
+                    <p id="random-pokemon-entry"></p>
                 </div>
             </div>
         </aside>
