@@ -37,7 +37,20 @@ h1 {
     box-shadow: none !important;
 }
 
-.header-navbar .navbar-menu {
+
+.top-left {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    color: black;
+    text-shadow: 
+    rgb(255, 255, 255) 1px 1px 0px, 
+    rgb(255, 255, 255) -1px 1px 0px, 
+    rgb(255, 255, 255) -1px -1px 0px, 
+    rgb(255, 255, 255) 1px -1px 0px;
+}
+
+.navbar-menu {
     background: none !important;
 }
 
