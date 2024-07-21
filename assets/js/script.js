@@ -10,6 +10,7 @@ const speedText = document.getElementById('speedText');
 const Index = document.getElementById('index');
 const entry = document.getElementById('pokemon-entry');
 const pkmnName = document.getElementById('pokemon-name');
+const species = document.getElementById('pokemon-species');
 const type1 = document.getElementById('type1');
 const type2 = document.getElementById('type2');
 
@@ -40,7 +41,7 @@ const renderPKMNInfo = function (event) {
                     const type1Img = pokeObjIMG.types[0].type.name;
                     console.log(type1Img);
                     type1.setAttribute('src', `./assets/images/types/${type1Img}.png`);
-                    type2.setAttribute('src', "");
+                    type2.setAttribute('src', `./assets/images/types/none.png`);
                 }
             });
     };
@@ -99,10 +100,11 @@ const renderPKMNInfo = function (event) {
                 const enText = (pokeObjBio.flavor_text_entries.findIndex(obj => obj.language.name === 'en'));
                 // Updates Dex Entry and gets rid of unwanted characters
                 entry.innerHTML = `${pokeObjBio.flavor_text_entries[enText].flavor_text.replace('\f', " ")}`;
-
+                species.innerHTML="";
                 // Dex Name + #
                 const zerofilled = ('0000' + pokeObjBio.id).slice(-4);
                 pkmnName.innerHTML = `${pokemon.charAt(0).toUpperCase() + pokemon.slice(1)}: #${zerofilled}`;
+
             });
     };
 
@@ -321,7 +323,7 @@ const fetchAndDisplayMainPokemon = function (pokemon) {
                 const type1Img = data.types[0].type.name;
                 console.log(type1Img);
                 type1.setAttribute('src', `./assets/images/types/${type1Img}.png`);
-                type2.setAttribute('src', "");
+                type2.setAttribute('src', `./assets/images/types/none.png`);
             }
 
             const pokeObjStat = data.stats;
@@ -383,23 +385,22 @@ const getRandomPokemon = function () {
 
             const name = data.name.charAt(0).toUpperCase() + data.name.slice(1);
             document.getElementById('pokemon-name').textContent = `Name: ${name}`;
-
-            const type1 = data.types[0]?.type.name || '';
-            const type2 = data.types[1]?.type.name || '';
-
-            if (type1) {
-                document.getElementById('type1').src = `./assets/images/types/${type1}.png`;
-                document.getElementById('type1').style.display = 'inline';
+            species.innerHTML="";
+            
+            
+            if (data.types.length > 1) {
+                const type1Img = data.types[0].type.name;
+                const type2Img = data.types[1].type.name;
+                type1.setAttribute('src', `./assets/images/types/${type1Img}.png`);
+                type2.setAttribute('src', `./assets/images/types/${type2Img}.png`);
             } else {
-                document.getElementById('type1').style.display = 'none';
+                const type1Img = data.types[0].type.name;
+                console.log(type1Img);
+                type1.setAttribute('src', `./assets/images/types/${type1Img}.png`);
+                type2.setAttribute('src', `./assets/images/types/none.png`)
             }
 
-            if (type2) {
-                document.getElementById('type2').src = `./assets/images/types/${type2}.png`;
-                document.getElementById('type2').style.display = 'inline';
-            } else {
-                document.getElementById('type2').style.display = 'none';
-            }
+
 
             const pokeObjStat = data.stats;
             const empty = [];
@@ -433,7 +434,6 @@ const getRandomPokemon = function () {
             fetch(randomPokeSpeciesURL)
                 .then(response => response.json())
                 .then(speciesData => {
-                    document.getElementById('pokemon-species').textContent = `Species: ${speciesData.genera.find(genus => genus.language.name === 'en').genus}`;
                     document.getElementById('pokemon-entry').textContent = speciesData.flavor_text_entries
                         .find(entry => entry.language.name === 'en').flavor_text;
                 })
