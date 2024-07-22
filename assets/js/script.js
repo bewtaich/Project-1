@@ -374,81 +374,24 @@ const fetchAndDisplayMainPokemon = function (pokemon) {
 };
 
 // FUNCTION TO FETCH AND DISPLAY RANDOM POKEMON
-const getRandomPokemon = function () {
+// FUNCTION TO FETCH AND DISPLAY RANDOM POKEMON GIF USING DIFFERENT API
+const getRandomPokemonGif = function () {
     const randomId = Math.floor(Math.random() * 898) + 1; // As of now, there are 898 Pokémon
-    const randomPokeURL = `https://pokeapi.co/api/v2/pokemon/${randomId}/`;
-    const randomPokeSpeciesURL = `https://pokeapi.co/api/v2/pokemon-species/${randomId}/`;
-
-    fetch(randomPokeURL)
+    const randomPokeGifURL = `https://api.pokemontcg.io/v2/cards?q=nationalPokedexNumbers:${randomId}`;
+    fetch(randomPokeGifURL)
         .then(response => response.json())
         .then(data => {
-            const imgSrc = data.sprites.other['official-artwork'].front_default || './assets/images/default.png';
-            document.getElementById('random-pokemon-img').src = imgSrc;
-
-            const name = data.name.charAt(0).toUpperCase() + data.name.slice(1);
-            document.getElementById('pokemon-name').textContent = `Name: ${name}`;
-            species.innerHTML="";
-            
-            
-            if (data.types.length > 1) {
-                const type1Img = data.types[0].type.name;
-                const type2Img = data.types[1].type.name;
-                type1.setAttribute('src', `./assets/images/types/${type1Img}.png`);
-                type2.setAttribute('src', `./assets/images/types/${type2Img}.png`);
-            } else {
-                const type1Img = data.types[0].type.name;
-                console.log(type1Img);
-                type1.setAttribute('src', `./assets/images/types/${type1Img}.png`);
-                type2.setAttribute('src', `./assets/images/types/none.png`)
+            const cards = data.data;
+            if (cards.length > 0) {
+                const gifSrc = cards[0].images.large || './assets/images/default.png';
+                document.getElementById('random-pokemon-img').src = gifSrc;
             }
-
-
-
-            const pokeObjStat = data.stats;
-            const empty = [];
-
-            for (let i = 0; i < pokeObjStat.length; i++) {
-                const stats = pokeObjStat[i].base_stat;
-                empty.push(stats);
-            }
-
-            hpText.textContent = empty[0];
-            atkText.textContent = empty[1];
-            defText.textContent = empty[2];
-            spatkText.textContent = empty[3];
-            spdefText.textContent = empty[4];
-            speedText.textContent = empty[5];
-
-            const hpbar = document.getElementById('hpbar');
-            const atkbar = document.getElementById('atkbar');
-            const defbar = document.getElementById('defbar');
-            const spatkbar = document.getElementById('spatkbar');
-            const spdefbar = document.getElementById('spdefbar');
-            const speedbar = document.getElementById('speedbar');
-
-            hpbar.style.width = `${((empty[0] / 255) * 100)}%`;
-            atkbar.style.width = `${((empty[1] / 255) * 100)}%`;
-            defbar.style.width = `${((empty[2] / 255) * 100)}%`;
-            spatkbar.style.width = `${((empty[3] / 255) * 100)}%`;
-            spdefbar.style.width = `${((empty[4] / 255) * 100)}%`;
-            speedbar.style.width = `${((empty[5] / 255) * 100)}%`;
-
-            fetch(randomPokeSpeciesURL)
-                .then(response => response.json())
-                .then(speciesData => {
-                    document.getElementById('pokemon-entry').textContent = speciesData.flavor_text_entries
-                        .find(entry => entry.language.name === 'en').flavor_text;
-                })
-                .catch(error => console.error('Error fetching Pokémon species data:', error));
         })
-        .catch(error => console.error('Error fetching Pokémon data:', error));
+        .catch(error => console.error('Error fetching Pokémon GIF:', error));
 };
-
-// FUNCTION TO DISPLAY A RANDOM POKEMON
-getRandomPokemon();
-
-document.getElementById('random-pokemon-btn').addEventListener('click', getRandomPokemon);
-
+// FUNCTION TO DISPLAY A RANDOM POKEMON GIF
+getRandomPokemonGif();
+document.getElementById('random-pokemon-btn').addEventListener('click', getRandomPokemonGif);
 // CONOR
 
 // FUNCTION TO SAVE TO LOCAL STORAGE

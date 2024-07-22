@@ -817,6 +817,11 @@ h1 {
         font-size: 0.5rem !important;
         padding: 0.4rem !important;
     }
+
+    .stat {
+        max-width: 100%;
+        font-size: auto;
+    }
 }
 
 .main-aside::-webkit-scrollbar {
