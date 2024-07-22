@@ -37,11 +37,13 @@ const renderPKMNInfo = function (event) {
                     const type2Img = pokeObjIMG.types[1].type.name;
                     type1.setAttribute('src', `./assets/images/types/${type1Img}.png`);
                     type2.setAttribute('src', `./assets/images/types/${type2Img}.png`);
+                    type2.setAttribute('style','width:100px;')
                 } else {
                     const type1Img = pokeObjIMG.types[0].type.name;
                     console.log(type1Img);
                     type1.setAttribute('src', `./assets/images/types/${type1Img}.png`);
                     type2.setAttribute('src', `./assets/images/types/none.png`);
+                    type2.setAttribute('style','width:1px;')
                 }
             });
     };

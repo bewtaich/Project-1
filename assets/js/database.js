@@ -18,20 +18,6 @@ return response.json();
     }
 })
 
-function autocompleteMatch(input) {
-  if (input == '') {
-    return [];
-  }
-
-  var reg = new RegExp(input, 'i')
-
-  return database.filter(function(term) {
-	  if (term.match(reg)) {
-  	  return term;
-	  }
-  });
-}
-
 function showResults(val) {
   res = document.getElementById("result");
   res.innerHTML = '';
