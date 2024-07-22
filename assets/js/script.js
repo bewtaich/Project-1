@@ -620,3 +620,5 @@ function dropFavorite(event) {
             saveFavoritesToLocalStorage(); // SAVE FAVORITES
         });
 }
+
+
