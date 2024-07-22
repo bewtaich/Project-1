@@ -12,3 +12,5 @@ https://bewtaich.github.io/Project-1/
 
 ## License
 Refer to MIT License within the repository
+
+![Pokedex](pokedexwebsite.png)
