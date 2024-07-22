@@ -10,6 +10,7 @@ const speedText = document.getElementById('speedText');
 const Index = document.getElementById('index');
 const entry = document.getElementById('pokemon-entry');
 const pkmnName = document.getElementById('pokemon-name');
+const species = document.getElementById('pokemon-species');
 const type1 = document.getElementById('type1');
 const type2 = document.getElementById('type2');
 
@@ -40,7 +41,7 @@ const renderPKMNInfo = function (event) {
                     const type1Img = pokeObjIMG.types[0].type.name;
                     console.log(type1Img);
                     type1.setAttribute('src', `./assets/images/types/${type1Img}.png`);
-                    type2.setAttribute('src', "");
+                    type2.setAttribute('src', `./assets/images/types/none.png`);
                 }
             });
     };
@@ -99,10 +100,11 @@ const renderPKMNInfo = function (event) {
                 const enText = (pokeObjBio.flavor_text_entries.findIndex(obj => obj.language.name === 'en'));
                 // Updates Dex Entry and gets rid of unwanted characters
                 entry.innerHTML = `${pokeObjBio.flavor_text_entries[enText].flavor_text.replace('\f', " ")}`;
-
+                species.innerHTML="";
                 // Dex Name + #
                 const zerofilled = ('0000' + pokeObjBio.id).slice(-4);
                 pkmnName.innerHTML = `${pokemon.charAt(0).toUpperCase() + pokemon.slice(1)}: #${zerofilled}`;
+
             });
     };
 
@@ -321,7 +323,7 @@ const fetchAndDisplayMainPokemon = function (pokemon) {
                 const type1Img = data.types[0].type.name;
                 console.log(type1Img);
                 type1.setAttribute('src', `./assets/images/types/${type1Img}.png`);
-                type2.setAttribute('src', "");
+                type2.setAttribute('src', `./assets/images/types/none.png`);
             }
 
             const pokeObjStat = data.stats;
@@ -372,72 +374,58 @@ const fetchAndDisplayMainPokemon = function (pokemon) {
 // FUNCTION TO FETCH AND DISPLAY RANDOM POKEMON
 const getRandomPokemon = function () {
     const randomId = Math.floor(Math.random() * 898) + 1; // As of now, there are 898 Pokémon
-    const randomPokeURL = `https://pokeapi.co/api/v2/pokemon/${randomId}/`;
-    const randomPokeSpeciesURL = `https://pokeapi.co/api/v2/pokemon-species/${randomId}/`;
+    const randomPokeURL = `https://api.pokemontcg.io/v2/cards?q=nationalPokedexNumbers:${randomId}`;
 
     fetch(randomPokeURL)
         .then(response => response.json())
         .then(data => {
-            const imgSrc = data.sprites.other['official-artwork'].front_default || './assets/images/default.png';
-            document.getElementById('random-pokemon-img').src = imgSrc;
+            if (data.data && data.data.length > 0) {
+                const pokemonCard = data.data[0];
+                const imgSrc = pokemonCard.images.large || './assets/images/default.png';
+                document.getElementById('random-pokemon-img').src = imgSrc;
 
-            const name = data.name.charAt(0).toUpperCase() + data.name.slice(1);
-            document.getElementById('pokemon-name').textContent = `Name: ${name}`;
+                const name = pokemonCard.name.charAt(0).toUpperCase() + pokemonCard.name.slice(1);
+                document.getElementById('pokemon-name').textContent = `Name: ${name}`;
+                species.innerHTML = "";
 
-            const type1 = data.types[0]?.type.name || '';
-            const type2 = data.types[1]?.type.name || '';
+                if (pokemonCard.types.length > 0) {
+                    const typeImg = pokemonCard.types[0].toLowerCase();
+                    type1.setAttribute('src', `./assets/images/types/${typeImg}.png`);
+                    type2.setAttribute('src', `./assets/images/types/none.png`);
+                } else {
+                    type1.setAttribute('src', `./assets/images/types/none.png`);
+                    type2.setAttribute('src', `./assets/images/types/none.png`);
+                }
 
-            if (type1) {
-                document.getElementById('type1').src = `./assets/images/types/${type1}.png`;
-                document.getElementById('type1').style.display = 'inline';
-            } else {
-                document.getElementById('type1').style.display = 'none';
+                const pokeObjStat = pokemonCard.stats || [];
+                const empty = [0, 0, 0, 0, 0, 0]; // Default values if stats are not available
+
+                for (let i = 0; i < pokeObjStat.length; i++) {
+                    const stats = pokeObjStat[i].value;
+                    empty[i] = stats;
+                }
+
+                hpText.textContent = empty[0];
+                atkText.textContent = empty[1];
+                defText.textContent = empty[2];
+                spatkText.textContent = empty[3];
+                spdefText.textContent = empty[4];
+                speedText.textContent = empty[5];
+
+                const hpbar = document.getElementById('hpbar');
+                const atkbar = document.getElementById('atkbar');
+                const defbar = document.getElementById('defbar');
+                const spatkbar = document.getElementById('spatkbar');
+                const spdefbar = document.getElementById('spdefbar');
+                const speedbar = document.getElementById('speedbar');
+
+                hpbar.style.width = `${((empty[0] / 255) * 100)}%`;
+                atkbar.style.width = `${((empty[1] / 255) * 100)}%`;
+                defbar.style.width = `${((empty[2] / 255) * 100)}%`;
+                spatkbar.style.width = `${((empty[3] / 255) * 100)}%`;
+                spdefbar.style.width = `${((empty[4] / 255) * 100)}%`;
+                speedbar.style.width = `${((empty[5] / 255) * 100)}%`;
             }
-
-            if (type2) {
-                document.getElementById('type2').src = `./assets/images/types/${type2}.png`;
-                document.getElementById('type2').style.display = 'inline';
-            } else {
-                document.getElementById('type2').style.display = 'none';
-            }
-
-            const pokeObjStat = data.stats;
-            const empty = [];
-
-            for (let i = 0; i < pokeObjStat.length; i++) {
-                const stats = pokeObjStat[i].base_stat;
-                empty.push(stats);
-            }
-
-            hpText.textContent = empty[0];
-            atkText.textContent = empty[1];
-            defText.textContent = empty[2];
-            spatkText.textContent = empty[3];
-            spdefText.textContent = empty[4];
-            speedText.textContent = empty[5];
-
-            const hpbar = document.getElementById('hpbar');
-            const atkbar = document.getElementById('atkbar');
-            const defbar = document.getElementById('defbar');
-            const spatkbar = document.getElementById('spatkbar');
-            const spdefbar = document.getElementById('spdefbar');
-            const speedbar = document.getElementById('speedbar');
-
-            hpbar.style.width = `${((empty[0] / 255) * 100)}%`;
-            atkbar.style.width = `${((empty[1] / 255) * 100)}%`;
-            defbar.style.width = `${((empty[2] / 255) * 100)}%`;
-            spatkbar.style.width = `${((empty[3] / 255) * 100)}%`;
-            spdefbar.style.width = `${((empty[4] / 255) * 100)}%`;
-            speedbar.style.width = `${((empty[5] / 255) * 100)}%`;
-
-            fetch(randomPokeSpeciesURL)
-                .then(response => response.json())
-                .then(speciesData => {
-                    document.getElementById('pokemon-species').textContent = `Species: ${speciesData.genera.find(genus => genus.language.name === 'en').genus}`;
-                    document.getElementById('pokemon-entry').textContent = speciesData.flavor_text_entries
-                        .find(entry => entry.language.name === 'en').flavor_text;
-                })
-                .catch(error => console.error('Error fetching Pokémon species data:', error));
         })
         .catch(error => console.error('Error fetching Pokémon data:', error));
 };
