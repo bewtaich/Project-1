@@ -37,11 +37,13 @@ const renderPKMNInfo = function (event) {
                     const type2Img = pokeObjIMG.types[1].type.name;
                     type1.setAttribute('src', `./assets/images/types/${type1Img}.png`);
                     type2.setAttribute('src', `./assets/images/types/${type2Img}.png`);
+                
                 } else {
                     const type1Img = pokeObjIMG.types[0].type.name;
                     console.log(type1Img);
                     type1.setAttribute('src', `./assets/images/types/${type1Img}.png`);
                     type2.setAttribute('src', `./assets/images/types/none.png`);
+                    
                 }
             });
     };
@@ -379,53 +381,52 @@ const getRandomPokemon = function () {
     fetch(randomPokeURL)
         .then(response => response.json())
         .then(data => {
-            if (data.data && data.data.length > 0) {
-                const pokemonCard = data.data[0];
-                const imgSrc = pokemonCard.images.large || './assets/images/default.png';
-                document.getElementById('random-pokemon-img').src = imgSrc;
-
-                const name = pokemonCard.name.charAt(0).toUpperCase() + pokemonCard.name.slice(1);
-                document.getElementById('pokemon-name').textContent = `Name: ${name}`;
-                species.innerHTML = "";
-
-                if (pokemonCard.types.length > 0) {
-                    const typeImg = pokemonCard.types[0].toLowerCase();
-                    type1.setAttribute('src', `./assets/images/types/${typeImg}.png`);
-                    type2.setAttribute('src', `./assets/images/types/none.png`);
-                } else {
-                    type1.setAttribute('src', `./assets/images/types/none.png`);
-                    type2.setAttribute('src', `./assets/images/types/none.png`);
-                }
-
-                const pokeObjStat = pokemonCard.stats || [];
-                const empty = [0, 0, 0, 0, 0, 0]; // Default values if stats are not available
-
-                for (let i = 0; i < pokeObjStat.length; i++) {
-                    const stats = pokeObjStat[i].value;
-                    empty[i] = stats;
-                }
-
-                hpText.textContent = empty[0];
-                atkText.textContent = empty[1];
-                defText.textContent = empty[2];
-                spatkText.textContent = empty[3];
-                spdefText.textContent = empty[4];
-                speedText.textContent = empty[5];
-
-                const hpbar = document.getElementById('hpbar');
-                const atkbar = document.getElementById('atkbar');
-                const defbar = document.getElementById('defbar');
-                const spatkbar = document.getElementById('spatkbar');
-                const spdefbar = document.getElementById('spdefbar');
-                const speedbar = document.getElementById('speedbar');
-
-                hpbar.style.width = `${((empty[0] / 255) * 100)}%`;
-                atkbar.style.width = `${((empty[1] / 255) * 100)}%`;
-                defbar.style.width = `${((empty[2] / 255) * 100)}%`;
-                spatkbar.style.width = `${((empty[3] / 255) * 100)}%`;
-                spdefbar.style.width = `${((empty[4] / 255) * 100)}%`;
-                speedbar.style.width = `${((empty[5] / 255) * 100)}%`;
+            if (data.data.length === 0) {
+                console.error('No Pokémon data found');
+                return;
             }
+
+            const pokemonCard = data.data[0];
+            const imgSrc = pokemonCard.images.large || './assets/images/default.png';
+            document.getElementById('random-pokemon-img').src = imgSrc;
+
+            const name = pokemonCard.name;
+            document.getElementById('pokemon-name').textContent = `Name: ${name}`;
+
+            const types = pokemonCard.types;
+            if (types && types.length > 0) {
+                const type1Img = types[0].toLowerCase();
+                type1.setAttribute('src', `./assets/images/types/${type1Img}.png`);
+                type2.setAttribute('src', `./assets/images/types/none.png`);
+            } else {
+                type1.setAttribute('src', `./assets/images/types/none.png`);
+                type2.setAttribute('src', `./assets/images/types/none.png`);
+            }
+
+            // Assuming the stats are not available in this API, keeping the existing code for stats hidden or defaulted
+            const defaultStat = 0;
+            hpText.textContent = defaultStat;
+            atkText.textContent = defaultStat;
+            defText.textContent = defaultStat;
+            spatkText.textContent = defaultStat;
+            spdefText.textContent = defaultStat;
+            speedText.textContent = defaultStat;
+
+            const hpbar = document.getElementById('hpbar');
+            const atkbar = document.getElementById('atkbar');
+            const defbar = document.getElementById('defbar');
+            const spatkbar = document.getElementById('spatkbar');
+            const spdefbar = document.getElementById('spdefbar');
+            const speedbar = document.getElementById('speedbar');
+
+            hpbar.style.width = `${((defaultStat / 255) * 100)}%`;
+            atkbar.style.width = `${((defaultStat / 255) * 100)}%`;
+            defbar.style.width = `${((defaultStat / 255) * 100)}%`;
+            spatkbar.style.width = `${((defaultStat / 255) * 100)}%`;
+            spdefbar.style.width = `${((defaultStat / 255) * 100)}%`;
+            speedbar.style.width = `${((defaultStat / 255) * 100)}%`;
+
+            // As the TCG API does not provide species information, this section is omitted
         })
         .catch(error => console.error('Error fetching Pokémon data:', error));
 };
@@ -620,5 +621,3 @@ function dropFavorite(event) {
             saveFavoritesToLocalStorage(); // SAVE FAVORITES
         });
 }
-
-
